@@ -1,0 +1,31 @@
+{
+    "name": "BB",
+    "description": "BB App Ruleset",
+    "rules": [
+        {
+            "id": "PTE0007",
+            "action": "None",
+            "justification":"Test"
+        },    
+        {
+            "id": "AA0074",
+            "action": "None",
+            "justification":"Ignore TextConst and Label variable must have a suffix from this list: Msg, Tok, Err, Qst, Lbl, TxtMsg, Tok, Err, Qst, Lbl, Txt"
+        },    
+        {
+            "id": "AL1025",
+            "action": "Error",
+            "justification":"Break on not matching PermissionSet definitions"
+        },
+        {
+            "id": "AL1026",
+            "action": "Error",
+            "justification":"Break on misformed XML Documents"
+        },
+        {
+            "id": "AL1027",
+            "action": "None",
+            "justification":"Ignore matching PermissionSet definitions"
+        }
+    ]
+}

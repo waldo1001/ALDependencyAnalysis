@@ -1,0 +1,114 @@
+<PermissionSets>
+    <PermissionSet RoleID="ALDA-ADMIN" RoleName="ALDA Admin">
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99000</ObjectID> <!-- ALDA Configuration -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>       
+         <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99010</ObjectID> <!-- ALDA Model Object -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>       
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99020</ObjectID> <!-- ALDA Number Range -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>      
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99030</ObjectID> <!-- ALDA Module -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>   
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99040</ObjectID> <!-- ALDA Object Element -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>   
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99050</ObjectID> <!-- ALDA Element Link -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>   
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99060</ObjectID> <!-- ALDA Module Link -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission> 
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99070</ObjectID> <!-- ALDA App -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission> 
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99080</ObjectID> <!-- Field Number Range -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99090</ObjectID> <!-- Number Range Cue -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>
+        <Permission>
+            <ObjectType>TableData</ObjectType>
+            <ObjectID>99100</ObjectID> <!-- ALDA Object Number Range -->
+            <ReadPermission>1</ReadPermission>
+            <InsertPermission>1</InsertPermission>
+            <ModifyPermission>1</ModifyPermission>
+            <DeletePermission>1</DeletePermission>
+            <ExecutePermission>0</ExecutePermission>
+            <SecurityFilter />
+        </Permission>
+    </PermissionSet>
+</PermissionSets>
