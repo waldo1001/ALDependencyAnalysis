@@ -29,7 +29,7 @@ codeunit 99060 "ALDA Module Link"
         ALDAModuleLinkFind.SetRange(Ignore, false);
         ALDAModuleLinkFind.SetFilter(Links, '>%1', 0);
 
-        ALDAModuleLink.Circular := ((not ALDAModuleLink."Self Reference") AND ALDAModuleLinkFind.FindFirst() AND (ALDAModuleLink.Links > 0));
+        ALDAModuleLink.Circular := ((not ALDAModuleLink."Self Reference") AND (not ALDAModuleLinkFind.IsEmpty()) AND (ALDAModuleLink.Links > 0));
         ALDAModuleLink.Modify();
     end;
 }

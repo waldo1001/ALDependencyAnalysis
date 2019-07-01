@@ -2,11 +2,11 @@ page 99053 "ALDA Element Link API"
 {
     PageType = API;
     Caption = 'restApi';
-    APIPublisher = 'bartbourgeois';
-    APIGroup = 'navmgt';
+    APIPublisher = 'waldo';
+    APIGroup = 'alDependency';
     //APIVersion = 'VersionList';
-    EntityName = 'ALDAElementLink';
-    EntitySetName = 'ALDAElementLinks';
+    EntityName = 'alDAElementLink';
+    EntitySetName = 'alDAElementLinks';
     ChangeTrackingAllowed = true;
     ODataKeyFields = UID;
     SourceTable = "ALDA Element Link";
@@ -18,55 +18,55 @@ page 99053 "ALDA Element Link API"
         {
             repeater(GroupName)
             {
-                field("uid"; "UID")
+                field(uid; "UID")
                 {
                     Caption = 'uid';
                     ApplicationArea = All;
                 }
 
-                field("sourceObjectType"; "Source Object Type")
+                field(sourceObjectType; "Source Object Type")
                 {
                     Caption = 'sourceObjectType';
                     ApplicationArea = All;
                 }
 
-                field("sourceObjectID"; "Source Object ID")
+                field(sourceObjectID; "Source Object ID")
                 {
                     Caption = 'sourceObjectID';
                     ApplicationArea = All;
                 }
 
-                field("sourceModule"; "Source Module")
+                field(sourceModule; "Source Module")
                 {
                     Caption = 'sourceModule';
                     ApplicationArea = All;
                 }
 
-                field("sourceElement"; "Source Element")
+                field(sourceElement; "Source Element")
                 {
                     Caption = 'sourceElement';
                     ApplicationArea = All;
                 }
 
-                field("targetObjectType"; "Target Object Type")
+                field(targetObjectType; "Target Object Type")
                 {
                     Caption = 'targetObjectType';
                     ApplicationArea = All;
                 }
 
-                field("targetObjectID"; "Target Object ID")
+                field(targetObjectID; "Target Object ID")
                 {
                     Caption = 'targetObjectID';
                     ApplicationArea = All;
                 }
 
-                field("targetModule"; "Target Module")
+                field(targetModule; "Target Module")
                 {
                     Caption = 'targetModule';
                     ApplicationArea = All;
                 }
 
-                field("targetElement"; "Target Element")
+                field(targetElement; "Target Element")
                 {
                     Caption = 'targetElement';
                     ApplicationArea = All;

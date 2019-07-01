@@ -12,12 +12,12 @@ page 99070 "ALDA Apps"
         {
             repeater(Group)
             {
-                field("App"; "App")
+                field(App; "App")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Description"; "Description")
+                field(Description; "Description")
                 {
                     ApplicationArea = All;
                 }
@@ -30,17 +30,17 @@ page 99070 "ALDA Apps"
                     ApplicationArea = All;
                 }
 
-                field("NA"; "NA")
+                field(NA; "NA")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modules"; "Modules")
+                field(Modules; "Modules")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Codeunits"; "Codeunits")
+                field(Codeunits; "Codeunits")
                 {
                     ApplicationArea = All;
                 }
@@ -50,13 +50,14 @@ page 99070 "ALDA Apps"
         {
             part(NumberRange; "ALDA ObjectNumberRange FactBox")
             {
-                SubPageLink = "ALDA App Code" = field (App);
+                ApplicationArea = All;
+                SubPageLink = "ALDA App Code" = field(App);
             }
             part("Picture"; "ALDA App Picture")
             {
                 Caption = 'Picture';
                 ApplicationArea = All;
-                SubPageLink = App = field (App);
+                SubPageLink = App = field(App);
             }
         }
     }
@@ -65,18 +66,20 @@ page 99070 "ALDA Apps"
     {
         area(Navigation)
         {
-            action("NumberRanges")
+            action(NumberRanges)
             {
+                ApplicationArea = All;
                 Caption = 'Number Ranges';
                 Image = ViewDetails;
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 RunObject = page "ALDA Object Number Ranges";
-                RunPageLink = "ALDA App Code" = field (App);
+                RunPageLink = "ALDA App Code" = field(App);
             }
-            action("FieldNumberRangesAction")
+            action(FieldNumberRangesAction)
             {
+                ApplicationArea = All;
                 caption = 'Field Nos';
                 image = ViewDetails;
                 Promoted = true;

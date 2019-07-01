@@ -29,8 +29,9 @@ page 99104 "ALDA ObjectNumberRange FactBox"
     {
         area(Processing)
         {
-            action("FieldNumberRanges")
+            action(FieldNumberRanges)
             {
+                ApplicationArea = All;
                 caption = 'Field Nos';
                 image = ViewDetails;
                 Promoted = true;

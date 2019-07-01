@@ -2,11 +2,11 @@ page 99023 "ALDA Number Range API"
 {
     PageType = API;
     Caption = 'restApi';
-    APIPublisher = 'bartbourgeois';
-    APIGroup = 'navmgt';
+    APIPublisher = 'waldo';
+    APIGroup = 'alDependency';
     //APIVersion = 'VersionList';
-    EntityName = 'ALDANumberRange';
-    EntitySetName = 'ALDANumberRanges';
+    EntityName = 'alDANumberRange';
+    EntitySetName = 'alDANumberRanges';
     ChangeTrackingAllowed = true;
     ODataKeyFields = Code;
     SourceTable = "ALDA Number Range";
@@ -18,19 +18,19 @@ page 99023 "ALDA Number Range API"
         {
             repeater(GroupName)
             {
-                field("code"; "Code")
+                field(code; "Code")
                 {
                     Caption = 'code';
                     ApplicationArea = All;
                 }
 
-                field("fromID"; "From ID")
+                field(fromID; "From ID")
                 {
                     Caption = 'fromID';
                     ApplicationArea = All;
                 }
 
-                field("toID"; "To ID")
+                field(toID; "To ID")
                 {
                     Caption = 'toID';
                     ApplicationArea = All;

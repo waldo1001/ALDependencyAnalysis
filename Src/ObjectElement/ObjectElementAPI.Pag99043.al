@@ -2,11 +2,11 @@ page 99043 "ALDA Object Element API"
 {
     PageType = API;
     Caption = 'restApi';
-    APIPublisher = 'bartbourgeois';
-    APIGroup = 'navmgt';
+    APIPublisher = 'waldo';
+    APIGroup = 'alDependency';
     //APIVersion = 'VersionList';
-    EntityName = 'ALDAObjectElement';
-    EntitySetName = 'ALDAObjectElements';
+    EntityName = 'alDAObjectElement';
+    EntitySetName = 'alDAObjectElements';
     ChangeTrackingAllowed = true;
     ODataKeyFields = UID;
     SourceTable = "ALDA Object Element";
@@ -18,19 +18,19 @@ page 99043 "ALDA Object Element API"
         {
             repeater(GroupName)
             {
-                field("uid"; "UID")
+                field(uid; "UID")
                 {
                     Caption = 'uid';
                     ApplicationArea = All;
                 }
 
-                field("element"; "Element")
+                field(element; "Element")
                 {
                     Caption = 'element';
                     ApplicationArea = All;
                 }
 
-                field("objectUID"; "Object UID")
+                field(objectUID; "Object UID")
                 {
                     Caption = 'objectUID';
                     ApplicationArea = All;

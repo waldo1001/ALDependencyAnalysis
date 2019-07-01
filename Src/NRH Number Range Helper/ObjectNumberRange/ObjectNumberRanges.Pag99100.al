@@ -30,7 +30,7 @@ page 99100 "ALDA Object Number Ranges"
                 {
                     ApplicationArea = All;
                 }
-                field("Comment"; "Comment")
+                field(Comment; "Comment")
                 {
                     ApplicationArea = All;
                 }
@@ -40,6 +40,7 @@ page 99100 "ALDA Object Number Ranges"
         {
             part(FieldNumberRanges; "ALDA FieldNumberRange Factbox")
             {
+                ApplicationArea = All;
                 /*Provider = NumberRange;
                  SubPageLink = "Object Type" = field ("Object Type"),
                                 "Object Id" = field ("Base Object Id"); */
@@ -50,8 +51,9 @@ page 99100 "ALDA Object Number Ranges"
     {
         area(Processing)
         {
-            action("FieldNumberRangesAction")
+            action(FieldNumberRangesAction)
             {
+                ApplicationArea = All;
                 caption = 'Field Nos';
                 image = ViewDetails;
                 Promoted = true;

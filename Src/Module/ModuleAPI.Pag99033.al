@@ -2,11 +2,11 @@ page 99033 "ALDA Module API"
 {
     PageType = API;
     Caption = 'restApi';
-    APIPublisher = 'bartbourgeois';
-    APIGroup = 'navmgt';
+    APIPublisher = 'waldo';
+    APIGroup = 'alDependency';
     //APIVersion = 'VersionList';
-    EntityName = 'ALDAModule';
-    EntitySetName = 'ALDAModules';
+    EntityName = 'alDAModule';
+    EntitySetName = 'alDAModules';
     ChangeTrackingAllowed = true;
     ODataKeyFields = Code;
     SourceTable = "ALDA Module";
@@ -18,13 +18,13 @@ page 99033 "ALDA Module API"
         {
             repeater(GroupName)
             {
-                field("code"; "Code")
+                field(code; "Code")
                 {
                     Caption = 'code';
                     ApplicationArea = All;
                 }
 
-                field("description"; "Description")
+                field(description; "Description")
                 {
                     Caption = 'description';
                     ApplicationArea = All;

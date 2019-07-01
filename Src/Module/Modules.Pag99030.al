@@ -12,47 +12,47 @@ page 99030 "ALDA Modules"
         {
             repeater(Group)
             {
-                field("Code"; "Code")
+                field(Code; "Code")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Description"; "Description")
+                field(Description; "Description")
                 {
                     ApplicationArea = All;
                 }
 
-                field("App"; "App")
+                field(App; "App")
                 {
                     ApplicationArea = All;
                 }
 
-                field("NA"; "NA")
+                field(NA; "NA")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Objects"; "Objects")
+                field(Objects; "Objects")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Using"; "Using")
+                field(Using; "Using")
                 {
                     ApplicationArea = All;
                 }
 
-                field("UsedBy"; "UsedBy")
+                field(UsedBy; "UsedBy")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Circular"; "Circular")
+                field(Circular; "Circular")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }
@@ -62,11 +62,12 @@ page 99030 "ALDA Modules"
         {
             part(NumberRange; "ALDA ObjectNumberRange FactBox")
             {
-                SubPageLink = "ALDA App Code" = field (App), "Module Code" = field (Code);
+                ApplicationArea = All;
+                SubPageLink = "ALDA App Code" = field(App), "Module Code" = field(Code);
             }
             part(FieldNumberRanges; "ALDA FieldNumberRange Factbox")
             {
-
+                ApplicationArea = All;
             }
         }
     }
@@ -75,18 +76,20 @@ page 99030 "ALDA Modules"
     {
         area(Navigation)
         {
-            action("NumberRanges")
+            action(NumberRanges)
             {
+                ApplicationArea = All;
                 Caption = 'Number Ranges';
                 Image = ViewDetails;
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
                 RunObject = page "ALDA Object Number Ranges";
-                RunPageLink = "ALDA App Code" = field (App), "Module Code" = field (Code);
+                RunPageLink = "ALDA App Code" = field(App), "Module Code" = field(Code);
             }
-            action("FieldNos")
+            action(FieldNos)
             {
+                ApplicationArea = All;
                 Caption = 'Field Number Ranges';
                 Image = ViewDetails;
                 Promoted = true;
