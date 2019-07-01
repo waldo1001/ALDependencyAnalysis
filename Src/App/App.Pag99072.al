@@ -9,18 +9,18 @@ page 99072 "ALDA App"
     {
         area(Content)
         {
-            group("GroupName")
+            group(GroupName)
             {
-                field("App"; "App")
+                field(App; "App")
                 {
                     ApplicationArea = All;
                 }
-                field("Description"; "Description")
+                field(Description; "Description")
                 {
                     ApplicationArea = All;
                 }
 
-                field("NA"; "NA")
+                field(NA; "NA")
                 {
                     ApplicationArea = All;
                 }

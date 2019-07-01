@@ -11,7 +11,7 @@ page 99000 "ALDA Configurations"
         {
             repeater(Group)
             {
-                field("Code"; "Code")
+                field(Code; "Code")
                 {
                     ApplicationArea = All;
                 }
@@ -48,7 +48,7 @@ page 99000 "ALDA Configurations"
     {
         area(Processing)
         {
-            action("Test")
+            action(Test)
             {
                 ApplicationArea = All;
                 Promoted = true;
@@ -74,7 +74,7 @@ page 99000 "ALDA Configurations"
                 end;
             }
 
-            // action("Graphviz")
+            // action(Graphviz)
             // {
             //     ApplicationArea = All;
             //     Promoted = true;
@@ -95,7 +95,7 @@ page 99000 "ALDA Configurations"
             //     end;
             // }
 
-            action("GraphvizContent")
+            action(GraphvizContent)
             {
                 ApplicationArea = All;
                 Promoted = true;

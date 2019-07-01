@@ -13,7 +13,7 @@ page 99050 "ALDA Element Links"
         {
             repeater(Group)
             {
-                field("UID"; "UID")
+                field(UID; "UID")
                 {
                     ApplicationArea = All;
                     Visible = false;
@@ -59,11 +59,11 @@ page 99050 "ALDA Element Links"
                     ApplicationArea = All;
                 }
 
-                field("Remark"; "Remark")
+                field(Remark; "Remark")
                 {
                     ApplicationArea = All;
                 }
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }
@@ -79,7 +79,7 @@ page 99050 "ALDA Element Links"
     {
         area(Processing)
         {
-            action("UpdateLinks")
+            action(UpdateLinks)
             {
                 ApplicationArea = All;
 

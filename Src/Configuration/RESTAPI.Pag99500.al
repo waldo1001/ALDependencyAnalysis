@@ -18,37 +18,37 @@
 //         {
 //             repeater(GroupName)
 //             {
-//                 field("id"; "UID")
+//                 field(id; "UID")
 //                 {
 //                     Caption = 'id';
 //                     ApplicationArea = All;
 //                 }
 
-//                 field("method"; "Method")
+//                 field(method; "Method")
 //                 {
 //                     Caption = 'method';
 //                     ApplicationArea = All;
 //                 }
 
-//                 field("endpointName"; "Endpoint Name")
+//                 field(endpointName; "Endpoint Name")
 //                 {
 //                     Caption = 'endpointName';
 //                     ApplicationArea = All;
 //                 }
 
-//                 field("endpointBaseUri"; "Endpoint Base Uri")
+//                 field(endpointBaseUri; "Endpoint Base Uri")
 //                 {
 //                     Caption = 'endpointBaseUri';
 //                     ApplicationArea = All;
 //                 }
 
-//                 field("createdDT"; "Created DT")
+//                 field(createdDT; "Created DT")
 //                 {
 //                     Caption = 'createdDT';
 //                     ApplicationArea = All;
 //                 }
 
-//                 field("duration"; "Duration")
+//                 field(duration; "Duration")
 //                 {
 //                     Caption = 'duration';
 //                     ApplicationArea = All;

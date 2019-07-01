@@ -6,7 +6,7 @@ table 99050 "ALDA Element Link"
 
     fields
     {
-        field(1; "UID"; Guid)
+        field(1; UID; Guid)
         {
             Caption = 'UID';
             DataClassification = ToBeClassified;
@@ -69,20 +69,20 @@ table 99050 "ALDA Element Link"
             Editable = false;
         }
 
-        field(50000; "Modified"; Boolean)
+        field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
             Editable = false;
         }
 
-        field(50030; "Ignore"; Boolean)
+        field(50030; Ignore; Boolean)
         {
             Caption = 'Ignore';
             DataClassification = ToBeClassified;
         }
 
-        field(50040; "Remark"; Text[200])
+        field(50040; Remark; Text[200])
         {
             Caption = 'Remark';
             DataClassification = ToBeClassified;

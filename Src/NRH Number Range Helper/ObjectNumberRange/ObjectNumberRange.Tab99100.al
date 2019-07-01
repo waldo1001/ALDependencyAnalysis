@@ -27,7 +27,7 @@ table 99100 "ALDA Object Number Range"
             Caption = 'To';
             DataClassification = SystemMetadata;
         }
-        field(60; "Comment"; text[250])
+        field(60; Comment; text[250])
         {
             Caption = 'Comment';
             DataClassification = SystemMetadata;

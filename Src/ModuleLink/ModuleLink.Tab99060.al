@@ -50,14 +50,14 @@ table 99060 "ALDA Module Link"
             Editable = false;
         }
 
-        field(50000; "Modified"; Boolean)
+        field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
             Editable = false;
         }
 
-        field(50010; "Circular"; Boolean)
+        field(50010; Circular; Boolean)
         {
             Caption = 'Circular';
             DataClassification = ToBeClassified;
@@ -71,14 +71,14 @@ table 99060 "ALDA Module Link"
             Editable = false;
         }
 
-        field(50030; "Ignore"; Boolean)
+        field(50030; Ignore; Boolean)
         {
             Caption = 'Ignore';
             DataClassification = ToBeClassified;
             Editable = false;
         }
 
-        field(99050; "Links"; Integer)
+        field(99050; Links; Integer)
         {
             Caption = 'Links';
             FieldClass = FlowField;
@@ -86,7 +86,7 @@ table 99060 "ALDA Module Link"
             Editable = false;
         }
 
-        field(99051; "Ignored"; Integer)
+        field(99051; Ignored; Integer)
         {
             Caption = 'Ignored';
             FieldClass = FlowField;
@@ -94,7 +94,7 @@ table 99060 "ALDA Module Link"
             Editable = false;
         }
 
-        field(99060; "Link"; Text[100])
+        field(99060; Link; Text[100])
         {
             Caption = 'Link';
             DataClassification = ToBeClassified;

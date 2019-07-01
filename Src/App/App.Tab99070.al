@@ -6,19 +6,19 @@ table 99070 "ALDA App"
 
     fields
     {
-        field(1; "App"; Code[20])
+        field(1; App; Code[20])
         {
             Caption = 'App';
             DataClassification = ToBeClassified;
         }
 
-        field(10; "Description"; Text[100])
+        field(10; Description; Text[100])
         {
             Caption = 'Description';
             DataClassification = ToBeClassified;
         }
 
-        field(20; "NA"; Boolean)
+        field(20; NA; Boolean)
         {
             Caption = 'NA';
             DataClassification = ToBeClassified;
@@ -35,12 +35,12 @@ table 99070 "ALDA App"
         }
 
 
-        field(1020; "GraphMediaSet"; MediaSet)
+        field(1020; GraphMediaSet; MediaSet)
         {
             Caption = 'GraphMediaSet';
         }
 
-        field(99011; "Codeunits"; Integer)
+        field(99011; Codeunits; Integer)
         {
             Caption = 'Codeunits';
             FieldClass = FlowField;
@@ -48,7 +48,7 @@ table 99070 "ALDA App"
             Editable = false;
         }
 
-        field(99030; "Modules"; Integer)
+        field(99030; Modules; Integer)
         {
             Caption = 'Modules';
             FieldClass = FlowField;

@@ -9,9 +9,9 @@ page 99022 "ALDA Number Range"
     {
         area(Content)
         {
-            group("GroupName")
+            group(GroupName)
             {
-                field("Code"; "Code")
+                field(Code; "Code")
                 {
                     ApplicationArea = All;
                 }
@@ -31,7 +31,7 @@ page 99022 "ALDA Number Range"
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }

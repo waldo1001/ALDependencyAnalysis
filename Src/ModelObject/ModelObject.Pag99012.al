@@ -9,7 +9,7 @@ page 99012 "ALDA Model Object"
     {
         area(Content)
         {
-            group("GroupName")
+            group(GroupName)
             {
                 field("Object Type"; "Object Type")
                 {
@@ -31,12 +31,12 @@ page 99012 "ALDA Model Object"
                     ApplicationArea = All;
                 }
 
-                field("Module"; "Module")
+                field(Module; "Module")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }

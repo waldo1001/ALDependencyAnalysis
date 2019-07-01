@@ -22,7 +22,7 @@ page 99084 "ALDA FieldNumberRange Factbox"
                 {
                     ApplicationArea = All;
                 }
-                field("Comment"; "Comment")
+                field(Comment; "Comment")
                 {
                     ApplicationArea = All;
                 }

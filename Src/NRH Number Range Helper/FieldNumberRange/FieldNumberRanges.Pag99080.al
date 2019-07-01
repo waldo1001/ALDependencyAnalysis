@@ -21,7 +21,7 @@ page 99080 "ALDA Field Number Ranges"
                 {
                     ApplicationArea = All;
                 }
-                field("Comment"; "Comment")
+                field(Comment; "Comment")
                 {
                     ApplicationArea = All;
                 }

@@ -9,15 +9,15 @@ page 99095 "ALDA Number Range Activities"
         {
             cuegroup("Number Ranges")
             {
-                field("Apps"; "ALDA Apps")
+                field(Apps; "ALDA Apps")
                 {
                     ApplicationArea = All;
                 }
-                field("Modules"; "ALDA Modules")
+                field(Modules; "ALDA Modules")
                 {
                     ApplicationArea = All;
                 }
-                field("NumberRanges"; "Number Ranges")
+                field(NumberRanges; "Number Ranges")
                 {
                     ApplicationArea = All;
                 }

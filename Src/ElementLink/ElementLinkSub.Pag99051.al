@@ -11,7 +11,7 @@ page 99051 "ALDA Element Link Sub"
         {
             repeater(Group)
             {
-                field("UID"; "UID")
+                field(UID; "UID")
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -65,12 +65,12 @@ page 99051 "ALDA Element Link Sub"
                     Editable = false;
                 }
 
-                field("Remark"; "Remark")
+                field(Remark; "Remark")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                     Editable = false;

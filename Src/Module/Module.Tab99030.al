@@ -6,50 +6,50 @@ table 99030 "ALDA Module"
 
     fields
     {
-        field(1; "Code"; Code[20])
+        field(1; Code; Code[20])
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;
         }
 
-        field(10; "Description"; Text[100])
+        field(10; Description; Text[100])
         {
             Caption = 'Description';
             DataClassification = ToBeClassified;
         }
 
-        field(20; "NA"; Boolean)
+        field(20; NA; Boolean)
         {
             Caption = 'NA';
             DataClassification = ToBeClassified;
         }
 
-        field(1000; "Graph"; Blob)
+        field(1000; Graph; Blob)
         {
             Caption = 'Graph';
             Subtype = Bitmap;
             ObsoleteState = Removed;
         }
 
-        field(1010; "GraphMedia"; Media)
+        field(1010; GraphMedia; Media)
         {
             Caption = 'GraphMedia';
             ObsoleteState = Removed;
         }
 
-        field(1020; "GraphMediaSet"; MediaSet)
+        field(1020; GraphMediaSet; MediaSet)
         {
             Caption = 'GraphMediaSet';
         }
 
-        field(50000; "Modified"; Boolean)
+        field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
             Editable = false;
         }
 
-        field(99010; "Objects"; Integer)
+        field(99010; Objects; Integer)
         {
             Caption = 'Objects';
             FieldClass = FlowField;
@@ -57,7 +57,7 @@ table 99030 "ALDA Module"
             Editable = false;
         }
 
-        field(99060; "Using"; Integer)
+        field(99060; Using; Integer)
         {
             Caption = 'Using';
             FieldClass = FlowField;
@@ -65,7 +65,7 @@ table 99030 "ALDA Module"
             Editable = false;
         }
 
-        field(99061; "UsedBy"; Integer)
+        field(99061; UsedBy; Integer)
         {
             Caption = 'UsedBy';
             FieldClass = FlowField;
@@ -73,7 +73,7 @@ table 99030 "ALDA Module"
             Editable = false;
         }
 
-        field(99062; "Circular"; Integer)
+        field(99062; Circular; Integer)
         {
             Caption = 'Circular';
             FieldClass = FlowField;
@@ -81,7 +81,7 @@ table 99030 "ALDA Module"
             Editable = false;
         }
 
-        field(99070; "App"; Code[20])
+        field(99070; App; Code[20])
         {
             Caption = 'App';
             DataClassification = ToBeClassified;

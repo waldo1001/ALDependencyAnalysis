@@ -7,7 +7,7 @@ page 99005 "ALDA Role Center"
     {
         area(RoleCenter)
         {
-            group("General")
+            group(General)
             {
                 ShowCaption = false;
 
@@ -23,10 +23,10 @@ page 99005 "ALDA Role Center"
     {
         area(Sections)
         {
-            group("ALDA")
+            group(ALDA)
             {
 
-                action("Object")
+                action(Object)
                 {
                     ApplicationArea = All;
                     Promoted = true;
@@ -35,7 +35,7 @@ page 99005 "ALDA Role Center"
                     AccessByPermission = tabledata "ALDA Model Object" = R;
                 }
 
-                action("Module")
+                action(Module)
                 {
                     ApplicationArea = All;
                     Promoted = true;
@@ -62,7 +62,7 @@ page 99005 "ALDA Role Center"
                     AccessByPermission = tabledata "ALDA Module Link" = R;
                 }
 
-                action("Apps")
+                action(Apps)
                 {
                     ApplicationArea = All;
                     Promoted = true;

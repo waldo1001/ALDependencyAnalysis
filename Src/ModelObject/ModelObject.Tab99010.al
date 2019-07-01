@@ -6,7 +6,7 @@ table 99010 "ALDA Model Object"
 
     fields
     {
-        field(1; "UID"; Guid)
+        field(1; UID; Guid)
         {
             Caption = 'UID';
             DataClassification = ToBeClassified;
@@ -35,7 +35,7 @@ table 99010 "ALDA Model Object"
             DataClassification = ToBeClassified;
         }
 
-        field(50000; "Modified"; Boolean)
+        field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
@@ -49,7 +49,7 @@ table 99010 "ALDA Model Object"
             ValidateTableRelation = true;
         }
 
-        field(99030; "Module"; Code[20])
+        field(99030; Module; Code[20])
         {
             Caption = 'Module';
             DataClassification = ToBeClassified;
@@ -57,7 +57,7 @@ table 99010 "ALDA Model Object"
             ValidateTableRelation = true;
         }
 
-        field(99031; "App"; Code[20])
+        field(99031; App; Code[20])
         {
             Caption = 'App';
             FieldClass = FlowField;
@@ -65,7 +65,7 @@ table 99010 "ALDA Model Object"
             Editable = false;
         }
 
-        field(99040; "Elements"; Integer)
+        field(99040; Elements; Integer)
         {
             Caption = 'Elements';
             FieldClass = FlowField;
@@ -73,7 +73,7 @@ table 99010 "ALDA Model Object"
             Editable = false;
         }
 
-        field(99050; "Using"; Integer)
+        field(99050; Using; Integer)
         {
             Caption = 'Using';
             FieldClass = FlowField;

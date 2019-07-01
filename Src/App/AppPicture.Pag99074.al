@@ -10,7 +10,7 @@ page 99074 "ALDA App Picture"
     {
         area(Content)
         {
-            field("GraphMediaSet"; "GraphMediaSet")
+            field(GraphMediaSet; "GraphMediaSet")
             {
                 ApplicationArea = All;
                 ShowCaption = false;

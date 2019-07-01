@@ -17,7 +17,7 @@ table 99080 "ALDA Field Number Range"
             Caption = 'Field Id';
             DataClassification = SystemMetadata;
         }
-        field(30; "Comment"; text[250])
+        field(30; Comment; text[250])
         {
             Caption = 'Comment';
             DataClassification = SystemMetadata;

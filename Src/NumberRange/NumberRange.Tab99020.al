@@ -6,7 +6,7 @@ table 99020 "ALDA Number Range"
 
     fields
     {
-        field(1; "Code"; Code[20])
+        field(1; Code; Code[20])
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;
@@ -24,13 +24,13 @@ table 99020 "ALDA Number Range"
             DataClassification = ToBeClassified;
         }
 
-        field(50000; "Modified"; Boolean)
+        field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
         }
 
-        field(99010; "Objects"; Integer)
+        field(99010; Objects; Integer)
         {
             Caption = 'Objects';
             FieldClass = FlowField;

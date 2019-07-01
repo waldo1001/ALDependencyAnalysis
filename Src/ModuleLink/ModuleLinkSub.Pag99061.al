@@ -19,27 +19,27 @@ page 99061 "ALDA Module Link Sub"
                     ApplicationArea = All;
                 }
 
-                field("Links"; "Links")
+                field(Links; "Links")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Ignored"; "Ignored")
+                field(Ignored; "Ignored")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Circular"; "Circular")
+                field(Circular; "Circular")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Ignore"; "Ignore")
+                field(Ignore; "Ignore")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }

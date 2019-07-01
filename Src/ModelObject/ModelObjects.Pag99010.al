@@ -33,22 +33,22 @@ page 99010 "ALDA Model Objects"
                     ApplicationArea = All;
                 }
 
-                field("Module"; "Module")
+                field(Module; "Module")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Elements"; "Elements")
+                field(Elements; "Elements")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Using"; "Using")
+                field(Using; "Using")
                 {
                     ApplicationArea = All;
                 }

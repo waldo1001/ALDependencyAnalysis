@@ -11,13 +11,13 @@ page 99040 "ALDA Object Elements"
         {
             repeater(Group)
             {
-                field("UID"; "UID")
+                field(UID; "UID")
                 {
                     ApplicationArea = All;
                     Visible = false;
                 }
 
-                field("Element"; "Element")
+                field(Element; "Element")
                 {
                     ApplicationArea = All;
                 }
@@ -28,7 +28,7 @@ page 99040 "ALDA Object Elements"
                     Visible = false;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }

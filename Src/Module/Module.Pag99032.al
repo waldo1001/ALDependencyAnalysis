@@ -9,29 +9,29 @@ page 99032 "ALDA Module"
     {
         area(Content)
         {
-            group("GroupName")
+            group(GroupName)
             {
-                field("Code"; "Code")
+                field(Code; "Code")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Description"; "Description")
+                field(Description; "Description")
                 {
                     ApplicationArea = All;
                 }
 
-                field("App"; "App")
+                field(App; "App")
                 {
                     ApplicationArea = All;
                 }
 
-                field("NA"; "NA")
+                field(NA; "NA")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Modified"; "Modified")
+                field(Modified; "Modified")
                 {
                     ApplicationArea = All;
                 }

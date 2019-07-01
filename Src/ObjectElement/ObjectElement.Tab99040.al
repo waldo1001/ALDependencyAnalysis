@@ -6,19 +6,19 @@ table 99040 "ALDA Object Element"
 
     fields
     {
-        field(1; "UID"; Guid)
+        field(1; UID; Guid)
         {
             Caption = 'UID';
             DataClassification = ToBeClassified;
         }
 
-        field(10; "Element"; Text[250])
+        field(10; Element; Text[250])
         {
             Caption = 'Element';
             DataClassification = ToBeClassified;
         }
 
-        field(50000; "Modified"; Boolean)
+        field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
