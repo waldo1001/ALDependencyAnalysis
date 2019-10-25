@@ -1,0 +1,16 @@
+{
+    "al.enableCodeAnalysis": true,
+    "CRS.DisableDefaultAlSnippets": true,
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${PerTenantExtensionCop}"
+    ],
+    "al.ruleSetPath": "./.codeAnalysis/app.ruleset.json",
+    "CRS.OnSaveAlFileAction": "Rename",
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShort><ObjectId>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShort><BaseId>-Ext<ObjectId>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShort><BaseId>-PageCust.al",
+    "CRS.ObjectNamePrefix": "ALDA ",
+    "CRS.RemovePrefixFromFilename": true,
+    "editor.formatOnSave": true
+}

@@ -1,4 +1,4 @@
-page 99104 "ALDA ObjectNumberRange FactBox"
+page 99001 "ALDA ObjectNumberRange FactBox"
 {
     PageType = ListPart;
     SourceTable = "ALDA Object Number Range";

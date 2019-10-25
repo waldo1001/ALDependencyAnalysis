@@ -1,4 +1,4 @@
-table 99100 "ALDA Object Number Range"
+table 99001 "ALDA Object Number Range"
 {
     DrillDownPageId = "ALDA Object Number Ranges";
     DataClassification = ToBeClassified;

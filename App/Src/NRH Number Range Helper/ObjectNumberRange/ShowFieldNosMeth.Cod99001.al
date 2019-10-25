@@ -1,4 +1,4 @@
-codeunit 99101 "ALDA ShowFieldNos Meth"
+codeunit 99001 "ALDA ShowFieldNos Meth"
 {
     procedure ShowFieldNos(ObjectNumberRange: record "ALDA Object Number Range");
     var

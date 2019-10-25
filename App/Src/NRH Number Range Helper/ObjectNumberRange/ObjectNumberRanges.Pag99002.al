@@ -1,4 +1,4 @@
-page 99100 "ALDA Object Number Ranges"
+page 99002 "ALDA Object Number Ranges"
 {
 
     PageType = List;

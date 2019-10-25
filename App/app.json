@@ -10,18 +10,26 @@
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "appId": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "1.0.0.0"
+    }
+  ],
   "screenshots": [],
-  "platform": "14.0.0.0",
-  "application": "14.0.0.0",
+  "platform": "15.0.0.0",
   "idRanges": [
-    {        
+    {
       "from": 99000,
-      "to": 99999
+      "to": 99099
     }
   ],
   "contextSensitiveHelpUrl": "https://ALDependencyAnalysis.com/help/",
   "showMyCode": true,
-  "runtime": "3.0",
-  "features": ["TranslationFile"]
+  "runtime": "4.0",
+  "features": [
+    "TranslationFile"
+  ]
 }
