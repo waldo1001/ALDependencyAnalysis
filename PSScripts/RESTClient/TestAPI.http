@@ -1,0 +1,11 @@
+@ContainerName = bccurrent
+@UID = waldo
+@password = 4zC0EsRTXkZ9HrdH3M5CCTCDgkoPKWUDVON0LtOVwc8=
+
+#@APIBaseURL = http://{{ContainerName}}:7048/BC/api/v1.0/
+@APIBaseURL = http://{{ContainerName}}:7048/BC/api/v1.0/waldo/alDependency/v1.0
+#@APIBaseURL1 = http://{{ContainerName}}:7048/BC/api/beta
+
+###
+get {{APIBaseURL}}
+Authorization: Basic {{UID}} {{password}}

@@ -4,7 +4,7 @@ page 99053 "ALDA Element Link API"
     Caption = 'restApi';
     APIPublisher = 'waldo';
     APIGroup = 'alDependency';
-    //APIVersion = 'VersionList';
+    APIVersion = 'v1.0';
     EntityName = 'alDAElementLink';
     EntitySetName = 'alDAElementLinks';
     ChangeTrackingAllowed = true;

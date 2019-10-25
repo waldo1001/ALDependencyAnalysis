@@ -11,7 +11,7 @@ page 99005 "ALDA Role Center"
             {
                 ShowCaption = false;
 
-                part(NumberRange; "ALDA Number Range Activities")
+                part(NumberRange; "ALDA Activities")
                 {
                     ApplicationArea = All;
                 }

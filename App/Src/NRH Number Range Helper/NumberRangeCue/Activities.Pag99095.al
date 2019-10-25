@@ -1,4 +1,4 @@
-page 99095 "ALDA Number Range Activities"
+page 99095 "ALDA Activities"
 {
     PageType = CardPart;
     SourceTable = "ALDA Number Range Cue";
@@ -7,8 +7,10 @@ page 99095 "ALDA Number Range Activities"
     {
         area(Content)
         {
-            cuegroup("Number Ranges")
+            cuegroup(Activities)
             {
+                ShowCaption = false;
+
                 field(Apps; "ALDA Apps")
                 {
                     ApplicationArea = All;
