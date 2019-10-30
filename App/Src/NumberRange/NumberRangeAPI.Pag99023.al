@@ -4,7 +4,7 @@ page 99023 "ALDA Number Range API"
     Caption = 'restApi';
     APIPublisher = 'waldo';
     APIGroup = 'alDependency';
-    //APIVersion = 'VersionList';
+    APIVersion = 'v1.0';
     EntityName = 'alDANumberRange';
     EntitySetName = 'alDANumberRanges';
     ChangeTrackingAllowed = true;

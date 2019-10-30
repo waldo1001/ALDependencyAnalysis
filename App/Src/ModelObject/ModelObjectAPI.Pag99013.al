@@ -4,7 +4,7 @@ page 99013 "ALDA Model Object API"
     Caption = 'restApi';
     APIPublisher = 'waldo';
     APIGroup = 'alDependency';
-    //APIVersion = 'VersionList';
+    APIVersion = 'v1.0';
     EntityName = 'alDAModelObject';
     EntitySetName = 'alDAModelObjects';
     ChangeTrackingAllowed = true;
@@ -48,7 +48,7 @@ page 99013 "ALDA Model Object API"
                     ApplicationArea = All;
                 }
 
-                field(module; "Module")
+                field(module; ModuleName)
                 {
                     Caption = 'module';
                     ApplicationArea = All;
@@ -56,4 +56,35 @@ page 99013 "ALDA Model Object API"
             }
         }
     }
+
+    var
+        ModuleName: code[20];
+
+    trigger OnInsertRecord(BelowxRec: Boolean): Boolean
+    begin
+        ProcessModule();
+    end;
+
+    trigger OnModifyRecord(): Boolean
+    begin
+        ProcessModule();
+    end;
+
+    local procedure ProcessModule()
+    var
+        ALDAModule: Record "ALDA Module";
+    begin
+        if ("Object ID" < 50000) or ("Object ID" > 99000000) then
+            ModuleName := 'DEFAULT';
+
+        if not ALDAModule.Get(ModuleName) then begin
+            ALDAModule.Init();
+            ALDAModule.validate(Code, ModuleName);
+            ALDAModule.Insert(true);
+        end;
+
+        validate(Module, ModuleName);
+    end;
+
+
 }

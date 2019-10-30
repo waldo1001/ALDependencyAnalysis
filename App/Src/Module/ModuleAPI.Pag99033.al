@@ -4,7 +4,7 @@ page 99033 "ALDA Module API"
     Caption = 'restApi';
     APIPublisher = 'waldo';
     APIGroup = 'alDependency';
-    //APIVersion = 'VersionList';
+    APIVersion = 'v1.0';
     EntityName = 'alDAModule';
     EntitySetName = 'alDAModules';
     ChangeTrackingAllowed = true;

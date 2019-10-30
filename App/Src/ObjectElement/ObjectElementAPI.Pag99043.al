@@ -4,7 +4,7 @@ page 99043 "ALDA Object Element API"
     Caption = 'restApi';
     APIPublisher = 'waldo';
     APIGroup = 'alDependency';
-    //APIVersion = 'VersionList';
+    APIVersion = 'v1.0';
     EntityName = 'alDAObjectElement';
     EntitySetName = 'alDAObjectElements';
     ChangeTrackingAllowed = true;

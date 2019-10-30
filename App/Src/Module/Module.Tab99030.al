@@ -6,7 +6,7 @@ table 99030 "ALDA Module"
 
     fields
     {
-        field(1; Code; Code[20])
+        field(1; "Code"; Code[20])
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;
@@ -53,7 +53,7 @@ table 99030 "ALDA Module"
         {
             Caption = 'Objects';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Model Object" where (Module = field (Code)));
+            CalcFormula = count ("ALDA Model Object" where(Module = field(Code)));
             Editable = false;
         }
 
@@ -61,7 +61,7 @@ table 99030 "ALDA Module"
         {
             Caption = 'Using';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Module Link" where ("Source Module" = field (Code)));
+            CalcFormula = count ("ALDA Module Link" where("Source Module" = field(Code)));
             Editable = false;
         }
 
@@ -69,7 +69,7 @@ table 99030 "ALDA Module"
         {
             Caption = 'UsedBy';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Module Link" where ("Target Module" = field (Code)));
+            CalcFormula = count ("ALDA Module Link" where("Target Module" = field(Code)));
             Editable = false;
         }
 
@@ -77,7 +77,7 @@ table 99030 "ALDA Module"
         {
             Caption = 'Circular';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Module Link" where ("Source Module" = field (Code), Circular = const (true)));
+            CalcFormula = count ("ALDA Module Link" where("Source Module" = field(Code), Circular = const(true)));
             Editable = false;
         }
 
@@ -108,10 +108,6 @@ table 99030 "ALDA Module"
         Modified := true;
     end;
 
-    trigger OnDelete()
-    begin
-        Error('Not allowed');
-    end;
 
     trigger OnRename()
     begin

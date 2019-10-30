@@ -61,7 +61,7 @@ table 99010 "ALDA Model Object"
         {
             Caption = 'App';
             FieldClass = FlowField;
-            CalcFormula = lookup ("ALDA Module".App where (Code = field (Module)));
+            CalcFormula = lookup ("ALDA Module".App where(Code = field(Module)));
             Editable = false;
         }
 
@@ -69,7 +69,7 @@ table 99010 "ALDA Model Object"
         {
             Caption = 'Elements';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Object Element" where ("Object UID" = field (UID)));
+            CalcFormula = count ("ALDA Object Element" where("Object UID" = field(UID)));
             Editable = false;
         }
 
@@ -77,7 +77,7 @@ table 99010 "ALDA Model Object"
         {
             Caption = 'Using';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Element Link" where ("Target Object Type" = field ("Object Type"), "Target Object ID" = field ("Object ID")));
+            CalcFormula = count ("ALDA Element Link" where("Target Object Type" = field("Object Type"), "Target Object ID" = field("Object ID")));
             Editable = false;
         }
 
@@ -85,7 +85,7 @@ table 99010 "ALDA Model Object"
         {
             Caption = 'Used By';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Element Link" where ("Source Object Type" = field ("Object Type"), "Source Object ID" = field ("Object ID")));
+            CalcFormula = count ("ALDA Element Link" where("Source Object Type" = field("Object Type"), "Source Object ID" = field("Object ID")));
             Editable = false;
         }
     }
@@ -122,11 +122,6 @@ table 99010 "ALDA Model Object"
         Modified := true;
 
         CopyDownModule();
-    end;
-
-    trigger OnDelete()
-    begin
-        Error('Not allowed');
     end;
 
     trigger OnRename()
