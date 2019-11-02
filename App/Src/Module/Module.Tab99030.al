@@ -135,11 +135,11 @@ table 99030 "ALDA Module"
         ALDAModule.ToggleIgnore(rec);
     end;
 
-    procedure IgnoreAll()
+    procedure IgnoreAllLinks()
     var
         ALDAModule: Codeunit "ALDA Module";
     begin
-        ALDAModule.IgnoreAll(rec);
+        ALDAModule.IgnoreAllLinks(rec);
     end;
 
 }

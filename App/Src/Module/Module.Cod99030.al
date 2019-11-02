@@ -105,9 +105,12 @@ codeunit 99030 "ALDA Module"
             repeat
                 ALDAModuleLink.ToggleIgnore();
             until ALDAModuleLink.Next() = 0;
+
+        ALDAModule.NA := not ALDAModule.NA;
+        ALDAModule.Modify(true);
     end;
 
-    procedure IgnoreAll(var ALDAModule: Record "ALDA Module")
+    procedure IgnoreAllLinks(var ALDAModule: Record "ALDA Module")
     var
         ALDAModuleLink: Record "ALDA Module Link";
         lblConfirm: Label 'Are you sure you wish to ignore all links for the complete module?';

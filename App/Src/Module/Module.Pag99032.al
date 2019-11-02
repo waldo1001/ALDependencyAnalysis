@@ -11,7 +11,7 @@ page 99032 "ALDA Module"
         {
             group(GroupName)
             {
-                field(Code; "Code")
+                field("Code"; "Code")
                 {
                     ApplicationArea = All;
                 }
@@ -42,14 +42,14 @@ page 99032 "ALDA Module"
             {
                 Caption = 'Using';
                 ApplicationArea = All;
-                SubPageLink = "Source Module" = field (Code);
+                SubPageLink = "Source Module" = field(Code);
             }
 
             part("TargetModuleLink"; "ALDA Module Link Sub")
             {
                 Caption = 'UsedBy';
                 ApplicationArea = All;
-                SubPageLink = "Target Module" = field (Code);
+                SubPageLink = "Target Module" = field(Code);
             }
         }
 
@@ -59,7 +59,7 @@ page 99032 "ALDA Module"
             {
                 Caption = 'Picture';
                 ApplicationArea = All;
-                SubPageLink = Code = field (Code);
+                SubPageLink = Code = field(Code);
             }
         }
 
@@ -118,7 +118,7 @@ page 99032 "ALDA Module"
                 end;
             }
 
-            action("Ignore All")
+            action("Ignore All Links")
             {
                 ApplicationArea = All;
                 Promoted = true;
@@ -126,7 +126,7 @@ page 99032 "ALDA Module"
 
                 trigger OnAction();
                 begin
-                    IgnoreAll();
+                    IgnoreAllLinks();
                 end;
             }
         }

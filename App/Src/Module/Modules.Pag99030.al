@@ -12,7 +12,7 @@ page 99030 "ALDA Modules"
         {
             repeater(Group)
             {
-                field(Code; "Code")
+                field("Code"; "Code")
                 {
                     ApplicationArea = All;
                 }
@@ -76,33 +76,53 @@ page 99030 "ALDA Modules"
     {
         area(Navigation)
         {
-            action(NumberRanges)
+
+            action("Toggle Ignore")
             {
                 ApplicationArea = All;
-                Caption = 'Number Ranges';
-                Image = ViewDetails;
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
-                RunObject = page "ALDA Object Number Ranges";
-                RunPageLink = "ALDA App Code" = field(App), "Module Code" = field(Code);
-            }
-            action(FieldNos)
-            {
-                ApplicationArea = All;
-                Caption = 'Field Number Ranges';
-                Image = ViewDetails;
-                Promoted = true;
-                PromotedIsBig = true;
-                PromotedCategory = Process;
-                trigger OnAction()
+
+                trigger OnAction();
                 var
-                    ObjectNumberRange: record "ALDA Object Number Range";
+                    Module: Record "ALDA Module";
                 begin
-                    CurrPage.NumberRange.Page.GetRecord(ObjectNumberRange);
-                    ObjectNumberRange.ShowFieldNos();
+                    CurrPage.SetSelectionFilter(Module);
+
+                    if Module.FindSet() then
+                        repeat
+                            Module.ToggleIgnore();
+                        until Module.next() < 1;
                 end;
             }
+            // action(NumberRanges)
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Number Ranges';
+            //     Image = ViewDetails;
+            //     Promoted = true;
+            //     PromotedIsBig = true;
+            //     PromotedCategory = Process;
+            //     RunObject = page "ALDA Object Number Ranges";
+            //     RunPageLink = "ALDA App Code" = field(App), "Module Code" = field(Code);
+            // }
+            // action(FieldNos)
+            // {
+            //     ApplicationArea = All;
+            //     Caption = 'Field Number Ranges';
+            //     Image = ViewDetails;
+            //     Promoted = true;
+            //     PromotedIsBig = true;
+            //     PromotedCategory = Process;
+            //     trigger OnAction()
+            //     var
+            //         ObjectNumberRange: record "ALDA Object Number Range";
+            //     begin
+            //         CurrPage.NumberRange.Page.GetRecord(ObjectNumberRange);
+            //         ObjectNumberRange.ShowFieldNos();
+            //     end;
+            // }
         }
 
         area(Processing)
