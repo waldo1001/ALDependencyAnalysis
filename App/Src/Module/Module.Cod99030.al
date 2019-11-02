@@ -52,6 +52,8 @@ codeunit 99030 "ALDA Module"
         ALDAModuleLink: Record "ALDA Module Link";
         GraphVizText: TextBuilder;
     begin
+        ALDAModuleLink.SetRange(Ignore, false);
+        ALDAModuleLink.SetRange("Self Reference", false);
         if ALDAModuleLink.FindSet() then
             repeat
                 if ALDAModuleLink.Circular or (ALDAModuleLink.MultiLevelCircularCount > 0) then

@@ -80,6 +80,8 @@ foreach ($ExternalReference in $ExternalReferences) {
 
 $UploadEntries = $LogEntries | where-object { (-not $_.SelfReference) -and (($_.UsedByModuleMatch -ne $true) -or ($_.SourceModuleMatch -ne $true)) }
 
+#TODO: only a fraction of the links
+
 #Add them to the database
 foreach($UploadEntrie in $UploadEntries){
     New-ALDAElementLink -sourceObjectType $UploadEntrie.SourceObjectType `
