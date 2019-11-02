@@ -128,6 +128,13 @@ table 99030 "ALDA Module"
         exit(ALDAModule.MakeGraphText(Rec));
     end;
 
+    procedure MakeFullGraphText(): Text
+    var
+        ALDAModule: Codeunit "ALDA Module";
+    begin
+        exit(ALDAModule.MakeFullGraphText());
+    end;
+
     procedure ToggleIgnore()
     var
         ALDAModule: Codeunit "ALDA Module";

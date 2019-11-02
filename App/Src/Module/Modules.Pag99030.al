@@ -95,7 +95,36 @@ page 99030 "ALDA Modules"
                             Module.ToggleIgnore();
                         until Module.next() < 1;
                 end;
+
+
             }
+            action("Show Graphviz")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                Visible = true;
+
+                trigger OnAction()
+                begin
+                    Message(MakeGraphText());
+                end;
+            }
+            action("Show Full Graphviz")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                Visible = true;
+
+                trigger OnAction()
+                begin
+                    Message(MakeFullGraphText());
+                end;
+            }
+
             // action(NumberRanges)
             // {
             //     ApplicationArea = All;

@@ -47,6 +47,24 @@ codeunit 99030 "ALDA Module"
         exit(GraphVizText.ToText());
     end;
 
+    procedure MakeFullGraphText(): Text;
+    var
+        ALDAModuleLink: Record "ALDA Module Link";
+        GraphVizText: TextBuilder;
+    begin
+        if ALDAModuleLink.FindSet() then
+            repeat
+                if ALDAModuleLink.Circular or (ALDAModuleLink.MultiLevelCircularCount > 0) then
+                    GraphVizText.AppendLine(StrSubstNo('   "%1" -> "%2" [color="red"] ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"))
+                else
+                    GraphVizText.AppendLine(StrSubstNo('   "%1" -> "%2" ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
+
+            until ALDAModuleLink.Next() < 1;
+
+        exit(GraphVizText.ToText());
+    end;
+
+
     // procedure MakeGraph(var ALDAModule: Record "ALDA Module")
     // var
     //     RESTRequest: Record "REST Request";

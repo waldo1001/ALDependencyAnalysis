@@ -87,7 +87,7 @@ page 99032 "ALDA Module"
                 ApplicationArea = All;
                 Promoted = true;
                 PromotedIsBig = true;
-                Visible = false;
+                Visible = true;
 
                 trigger OnAction()
                 begin
