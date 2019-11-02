@@ -3,7 +3,7 @@ codeunit 99004 "ALDA Module Name Helper"
     Procedure GetModuleName(ObjectId: Integer; ObjectName: Text; ModuleName: Text): Text;
     begin
         if (ObjectId < 2000000) or (ObjectId > 99000000) then
-            ModuleName := '_DEFAULT'
+            ModuleName := '_BASEAPP'
         else
             if strlen(ModuleName) > 5 then
                 if ObjectName.ToLower().EndsWith('hook') then
