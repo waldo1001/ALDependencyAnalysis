@@ -27,7 +27,12 @@ function New-ALDAModelObject() {
 
 #Add them to the database
 foreach ($ModelObject in $model.NAVObjects) {
-    $Module = $ModelObject.ParentObjectName.Split(" ")[0].Split("-")[0]   
+    try {
+        $Module = $ModelObject.ParentObjectName.Split(" ")[0].Split("-")[0]   
+    }
+    catch {
+        $Module = '';
+    }
     
     New-ALDAModelObject -ObjectType $ModelObject.ParentObjectType `
         -ObjectID $ModelObject.ParentObjectID `

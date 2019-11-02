@@ -16,7 +16,7 @@ table 99060 "ALDA Module Link"
         {
             Caption = 'Source Module Exists';
             FieldClass = FlowField;
-            CalcFormula = exist ("ALDA Module" where (Code = field ("Source Module")));
+            CalcFormula = exist ("ALDA Module" where(Code = field("Source Module")));
             Editable = false;
         }
 
@@ -24,7 +24,7 @@ table 99060 "ALDA Module Link"
         {
             Caption = 'Source Module App';
             FieldClass = FlowField;
-            CalcFormula = lookup ("ALDA Module".App where (Code = field ("Source Module")));
+            CalcFormula = lookup ("ALDA Module".App where(Code = field("Source Module")));
             Editable = false;
         }
 
@@ -38,7 +38,7 @@ table 99060 "ALDA Module Link"
         {
             Caption = 'Target Module Exists';
             FieldClass = FlowField;
-            CalcFormula = exist ("ALDA Module" where (Code = field ("Target Module")));
+            CalcFormula = exist ("ALDA Module" where(Code = field("Target Module")));
             Editable = false;
         }
 
@@ -46,7 +46,7 @@ table 99060 "ALDA Module Link"
         {
             Caption = 'Target Module App';
             FieldClass = FlowField;
-            CalcFormula = lookup ("ALDA Module".App where (Code = field ("Target Module")));
+            CalcFormula = lookup ("ALDA Module".App where(Code = field("Target Module")));
             Editable = false;
         }
 
@@ -60,6 +60,12 @@ table 99060 "ALDA Module Link"
         field(50010; Circular; Boolean)
         {
             Caption = 'Circular';
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
+        field(50011; MultiLevelCircularCount; Integer)
+        {
+            Caption = 'Multi Level Circular';
             DataClassification = ToBeClassified;
             Editable = false;
         }
@@ -82,7 +88,7 @@ table 99060 "ALDA Module Link"
         {
             Caption = 'Links';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Element Link" where ("Source Module" = field ("Source Module"), "Target Module" = field ("Target Module"), Ignore = const (false)));
+            CalcFormula = count ("ALDA Element Link" where("Source Module" = field("Source Module"), "Target Module" = field("Target Module"), Ignore = const(false)));
             Editable = false;
         }
 
@@ -90,7 +96,7 @@ table 99060 "ALDA Module Link"
         {
             Caption = 'Ignored';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Element Link" where ("Source Module" = field ("Source Module"), "Target Module" = field ("Target Module"), Ignore = const (true)));
+            CalcFormula = count ("ALDA Element Link" where("Source Module" = field("Source Module"), "Target Module" = field("Target Module"), Ignore = const(true)));
             Editable = false;
         }
 
@@ -127,7 +133,6 @@ table 99060 "ALDA Module Link"
 
     trigger OnDelete()
     begin
-        Error('Not allowed');
     end;
 
     trigger OnRename()
@@ -142,10 +147,17 @@ table 99060 "ALDA Module Link"
         ALDAModuleLink.ToggleIgnore(Rec);
     end;
 
-    procedure CalculateCircular()
+    procedure CalculateDirectCircular()
     var
         ALDAModuleLink: Codeunit "ALDA Module Link";
     begin
-        ALDAModuleLink.CalculateCircular(Rec);
+        ALDAModuleLink.CalculateDirectCircular(Rec);
+    end;
+
+    procedure CalculateMultiLevelCircular()
+    var
+        ALDAModuleLink: Codeunit "ALDA Module Link";
+    begin
+        ALDAModuleLink.CalculateMultiLevelCircular(Rec);
     end;
 }

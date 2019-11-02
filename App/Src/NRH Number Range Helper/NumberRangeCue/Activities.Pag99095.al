@@ -11,7 +11,7 @@ page 99095 "ALDA Activities"
             {
                 ShowCaption = false;
 
-                field(Apps; "ALDA Apps")
+                field(Objects; "ALDA Objects")
                 {
                     ApplicationArea = All;
                 }
@@ -19,14 +19,26 @@ page 99095 "ALDA Activities"
                 {
                     ApplicationArea = All;
                 }
-                field(NumberRanges; "Number Ranges")
+                field("Object Links"; "ALDA Object Links")
                 {
                     ApplicationArea = All;
                 }
-                field("Field Nos"; "Field Nos")
+                field("ALDA Module Links"; "ALDA Module Links")
                 {
                     ApplicationArea = All;
                 }
+                field(Apps; "ALDA Apps")
+                {
+                    ApplicationArea = All;
+                }
+                // field(NumberRanges; "Number Ranges")
+                // {
+                //     ApplicationArea = All;
+                // }
+                // field("Field Nos"; "Field Nos")
+                // {
+                //     ApplicationArea = All;
+                // }
             }
         }
     }
@@ -35,8 +47,8 @@ page 99095 "ALDA Activities"
     begin
         IF NOT GET() then begin
             INIT();
-            INSERT()
-            ;
+            INSERT();
         END;
+
     end;
 }

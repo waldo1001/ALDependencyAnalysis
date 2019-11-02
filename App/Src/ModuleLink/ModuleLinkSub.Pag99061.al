@@ -29,7 +29,11 @@ page 99061 "ALDA Module Link Sub"
                     ApplicationArea = All;
                 }
 
-                field(Circular; "Circular")
+                field(Circular; Circular)
+                {
+                    ApplicationArea = All;
+                }
+                field(MultiLevelCircularCount; MultiLevelCircularCount)
                 {
                     ApplicationArea = All;
                 }

@@ -27,8 +27,8 @@ function New-ALDAElementLink() {
 
     $UID = [Guid]::NewGuid()
     Invoke-RestMethod -Method Post `
-        -Uri "$($CCNAVMgtApi)/alDAElementLinks" `
-        -Credential $CCRedential `
+        -Uri "$($Url)//companies($($Companies.value[0].id))/alDAElementLinks" `
+        -Credential $Credential `
         -ContentType "application/json" `
         -Body (@{ 
             "uid"              = $UID; 
@@ -50,7 +50,7 @@ $LogEntries = @()
 foreach ($ExternalReference in $ExternalReferences) {
     $LogEntry = [PSCustomObject]@{
         Source            = $ExternalReference.UsingElement.FullNameWithID
-        SourceCategory    = (Get-NumberRangeCategory -ObjectID $ExternalReference.UsingElement.ParentObjectID)
+        SourceCategory    = ''#(Get-NumberRangeCategory -ObjectID $ExternalReference.UsingElement.ParentObjectID)
         SourceObjectType  = $ExternalReference.UsingElement.ParentObjectType
         SourceObjectID    = $ExternalReference.UsingElement.ParentObjectID
         SourceObjectName  = $ExternalReference.UsingElement.ParentObjectName
@@ -61,7 +61,7 @@ foreach ($ExternalReference in $ExternalReferences) {
         UsedByObjectType  = $ExternalReference.SourceElement.ParentObjectType
         UsedByObjectID    = $ExternalReference.SourceElement.ParentObjectID
         UsedByObjectName  = $ExternalReference.SourceElement.ParentObjectName
-        UsedByCategory    = (Get-NumberRangeCategory -ObjectID $ExternalReference.SourceElement.ParentObjectID)
+        UsedByCategory    = ''#(Get-NumberRangeCategory -ObjectID $ExternalReference.SourceElement.ParentObjectID)
         UsedByModule      = $ExternalReference.SourceElement.ParentObjectName.Split(" ")[0].Split("-")[0]          
         UsedByModuleMatch = $false
 
@@ -76,4 +76,18 @@ foreach ($ExternalReference in $ExternalReferences) {
     }
     
     $LogEntries += $LogEntry  
+}
+
+$UploadEntries = $LogEntries | where-object { (-not $_.SelfReference) -and (($_.UsedByModuleMatch -ne $true) -or ($_.SourceModuleMatch -ne $true)) }
+
+#Add them to the database
+foreach($UploadEntrie in $UploadEntries){
+    New-ALDAElementLink -sourceObjectType $UploadEntrie.SourceObjectType `
+                        -sourceObjectID $UploadEntrie.SourceObjectID `
+                        -sourceModule $UploadEntrie.SourceModule `
+                        -sourceElement $UploadEntrie.Source `
+                        -targetObjectType $UploadEntrie.UsedByObjectType `
+                        -targetObjectID $UploadEntrie.UsedByObjectID `
+                        -targetModule $UploadEntrie.UsedByModule `
+                        -targetElement $UploadEntrie.UsedBy
 }

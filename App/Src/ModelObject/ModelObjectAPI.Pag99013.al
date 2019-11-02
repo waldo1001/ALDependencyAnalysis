@@ -58,7 +58,7 @@ page 99013 "ALDA Model Object API"
     }
 
     var
-        ModuleName: code[20];
+        ModuleName: Text;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
@@ -73,9 +73,9 @@ page 99013 "ALDA Model Object API"
     local procedure ProcessModule()
     var
         ALDAModule: Record "ALDA Module";
+        ALDAModuleNameHelper: Codeunit "ALDA Module Name Helper";
     begin
-        if ("Object ID" < 50000) or ("Object ID" > 99000000) then
-            ModuleName := 'DEFAULT';
+        ModuleName := ALDAModuleNameHelper.GetModuleName("Object ID", "Object Name", ModuleName);
 
         if not ALDAModule.Get(ModuleName) then begin
             ALDAModule.Init();

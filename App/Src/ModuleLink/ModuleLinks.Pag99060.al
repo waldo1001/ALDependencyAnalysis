@@ -36,7 +36,11 @@ page 99060 "ALDA Module Links"
                     ApplicationArea = All;
                 }
 
-                field(Circular; "Circular")
+                field(Circular; Circular)
+                {
+                    ApplicationArea = All;
+                }
+                field(MultiLevelCircularCount; MultiLevelCircularCount)
                 {
                     ApplicationArea = All;
                 }
@@ -83,7 +87,7 @@ page 99060 "ALDA Module Links"
                 end;
             }
 
-            action("Calculate Circular")
+            action("Calculate Direct Circular")
             {
                 ApplicationArea = All;
                 Promoted = true;
@@ -94,11 +98,36 @@ page 99060 "ALDA Module Links"
                     ALDAModuleLink: Record "ALDA Module Link";
                 begin
                     clear(ALDAModuleLink);
+                    ALDAModuleLink.ModifyAll(Circular, false);
+
                     if (not ALDAModuleLink.FindSet()) then
                         exit;
 
                     repeat
-                        ALDAModuleLink.CalculateCircular();
+                        ALDAModuleLink.CalculateDirectCircular();
+                    until ALDAModuleLink.Next() < 1;
+                end;
+            }
+            action("Calculate Multi Level Circular")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedIsBig = true;
+
+                trigger OnAction()
+                var
+                    ALDAModuleLink: Record "ALDA Module Link";
+                begin
+                    clear(ALDAModuleLink);
+                    ALDAModuleLink.ModifyAll(MultiLevelCircularCount, 0);
+                    commit();
+
+                    ALDAModuleLink.Reset();
+                    if (not ALDAModuleLink.FindSet()) then
+                        exit;
+
+                    repeat
+                        ALDAModuleLink.CalculateMultiLevelCircular();
                     until ALDAModuleLink.Next() < 1;
                 end;
             }

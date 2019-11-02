@@ -13,10 +13,10 @@ codeunit 99060 "ALDA Module Link"
         ALDAElementLink.SetRange(Ignore, not ALDAModuleLink.Ignore);
         ALDAElementLink.ModifyAll(Ignore, ALDAModuleLink.Ignore);
 
-        CalculateCircular(ALDAModuleLink);
+        CalculateDirectCircular(ALDAModuleLink);
     end;
 
-    procedure CalculateCircular(var ALDAModuleLink: Record "ALDA Module Link")
+    procedure CalculateDirectCircular(var ALDAModuleLink: Record "ALDA Module Link")
     var
         ALDAModuleLinkFind: Record "ALDA Module Link";
     begin
@@ -31,5 +31,53 @@ codeunit 99060 "ALDA Module Link"
 
         ALDAModuleLink.Circular := ((not ALDAModuleLink."Self Reference") AND (not ALDAModuleLinkFind.IsEmpty()) AND (ALDAModuleLink.Links > 0));
         ALDAModuleLink.Modify();
+    end;
+
+    procedure CalculateMultiLevelCircular(ALDAModuleLink: Record "ALDA Module Link")
+    var
+        ALDAModuleLinkFind: Record "ALDA Module Link";
+        Circle: List of [Text];
+        Module: Text;
+    begin
+        if ALDAModuleLink."Self Reference" then exit;
+
+        clear(Circle);
+        Circle.Add(ALDAModuleLink."Source Module");
+        if IsCircular(ALDAModuleLink, Circle) then begin
+            //TODO: Loop All
+            ALDAModuleLink.MultiLevelCircularCount := Circle.Count();
+            ALDAModuleLink.Modify(true);
+        end;
+    end;
+
+
+    local procedure IsCircular(ALDAModuleLink: Record "ALDA Module Link"; Circle: List of [Text]): Boolean
+    var
+        UsingLinks: record "ALDA Module Link";
+        CircleList: TExt;
+        CircleItem: Text;
+    begin
+
+        foreach CircleItem in Circle do
+            CircleList += CircleItem + '-';
+
+        UsingLinks.SetRange("Source Module", ALDAModuleLink."Target Module");
+        UsingLinks.SetRange(Ignore, false);
+        if UsingLinks.FindSet() then
+            repeat
+                if not (UsingLinks."Source Module" = UsingLinks."Target Module") then begin
+                    Circle.Add(UsingLinks."Source Module");
+                    CircleList += UsingLinks."Source Module";
+
+                    if Circle.get(1) = UsingLinks."Target Module" then
+                        exit(true)
+                    else
+                        if not circle.Contains(UsingLinks."Target Module") then
+                            if IsCircular(UsingLinks, Circle) then
+                                exit(true);
+                end;
+            until UsingLinks.Next() < 1;
+
+        exit(false);
     end;
 }

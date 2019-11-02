@@ -5,7 +5,6 @@ page 99050 "ALDA Element Links"
     UsageCategory = Lists;
     SourceTable = "ALDA Element Link";
     InsertAllowed = false;
-    DeleteAllowed = false;
 
     layout
     {

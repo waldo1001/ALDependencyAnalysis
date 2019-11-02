@@ -35,11 +35,24 @@ page 99053 "ALDA Element Link API"
                     Caption = 'sourceObjectID';
                     ApplicationArea = All;
                 }
+                field(sourceObjectName; SourceObjectNameTmp)
+                {
+                    Caption = 'sourceObjectName';
+                    ApplicationArea = All;
+                }
 
-                field(sourceModule; "Source Module")
+                field(sourceModule; SourceModuleTmp)
                 {
                     Caption = 'sourceModule';
                     ApplicationArea = All;
+
+                    trigger OnValidate()
+                    var
+                        ALDAModuleNameHelper: Codeunit "ALDA Module Name Helper";
+                    begin
+                        SourceModuleTmp := ALDAModuleNameHelper.GetModuleName("Source Object ID", SourceObjectNameTmp, SourceModuleTmp);
+                        Validate("Source Module", SourceModuleTmp);
+                    end;
                 }
 
                 field(sourceElement; "Source Element")
@@ -59,11 +72,24 @@ page 99053 "ALDA Element Link API"
                     Caption = 'targetObjectID';
                     ApplicationArea = All;
                 }
+                field(targetObjectName; TargetObjectNameTmp)
+                {
+                    Caption = 'targetObjectName';
+                    ApplicationArea = All;
+                }
 
-                field(targetModule; "Target Module")
+                field(targetModule; TargetModuleTmp)
                 {
                     Caption = 'targetModule';
                     ApplicationArea = All;
+
+                    trigger OnValidate()
+                    var
+                        ALDAModuleNameHelper: Codeunit "ALDA Module Name Helper";
+                    begin
+                        TargetModuleTmp := ALDAModuleNameHelper.GetModuleName("Target Object ID", TargetObjectNameTmp, TargetModuleTmp);
+                        Validate("Target Module", TargetModuleTmp);
+                    end;
                 }
 
                 field(targetElement; "Target Element")
@@ -75,4 +101,11 @@ page 99053 "ALDA Element Link API"
             }
         }
     }
+
+    var
+        SourceModuleTmp: Text;
+        TargetModuleTmp: Text;
+        SourceObjectNameTmp: Text;
+        TargetObjectNameTmp: Text;
+
 }

@@ -17,63 +17,54 @@ table 99050 "ALDA Element Link"
         {
             Caption = 'Source Object Type';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(1010; "Source Object ID"; Integer)
         {
             Caption = 'Source Object ID';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(1020; "Source Element"; Text[250])
         {
             Caption = 'Source Element';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(1030; "Source Module"; Text[20])
         {
             Caption = 'Source Module';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(2000; "Target Object Type"; Code[20])
         {
             Caption = 'Target Object Type';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(2010; "Target Object ID"; Integer)
         {
             Caption = 'Target Object ID';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(2020; "Target Element"; Text[250])
         {
             Caption = 'Target Element';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(2030; "Target Module"; Text[20])
         {
             Caption = 'Target Module';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(50000; Modified; Boolean)
         {
             Caption = 'Modified';
             DataClassification = ToBeClassified;
-            Editable = false;
         }
 
         field(50030; Ignore; Boolean)
@@ -136,7 +127,6 @@ table 99050 "ALDA Element Link"
 
     trigger OnDelete()
     begin
-        Error('Not allowed');
     end;
 
     trigger OnRename()
