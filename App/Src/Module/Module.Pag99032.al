@@ -42,14 +42,14 @@ page 99032 "ALDA Module"
             {
                 Caption = 'Using';
                 ApplicationArea = All;
-                SubPageLink = "Source Module" = field(Code);
+                SubPageLink = "Target Module" = field(Code);
             }
 
             part("TargetModuleLink"; "ALDA Module Link Sub")
             {
                 Caption = 'UsedBy';
                 ApplicationArea = All;
-                SubPageLink = "Target Module" = field(Code);
+                SubPageLink = "Source Module" = field(Code);
             }
         }
 

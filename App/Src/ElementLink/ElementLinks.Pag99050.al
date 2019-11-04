@@ -12,6 +12,10 @@ page 99050 "ALDA Element Links"
         {
             repeater(Group)
             {
+                field(Element; "Target Element")
+                {
+                    ApplicationArea = All;
+                }
                 field(UID; "UID")
                 {
                     ApplicationArea = All;
@@ -56,6 +60,7 @@ page 99050 "ALDA Element Links"
                 field("Target Element"; "Target Element")
                 {
                     ApplicationArea = All;
+                    Visible = false;
                 }
 
                 field(Remark; "Remark")

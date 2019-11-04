@@ -33,10 +33,13 @@ foreach ($ModelObject in $model.NAVObjects) {
     catch {
         $Module = '';
     }
+
+    #if ((!$Module) -or (!$OnlyModules) -or ($Module -in $ModuleFilter)) {
+        New-ALDAModelObject -ObjectType $ModelObject.ParentObjectType `
+            -ObjectID $ModelObject.ParentObjectID `
+            -ObjectName $ModelObject.ParentObjectName `
+            -NumberRange "" `
+            -Module $Module
+    #}
     
-    New-ALDAModelObject -ObjectType $ModelObject.ParentObjectType `
-        -ObjectID $ModelObject.ParentObjectID `
-        -ObjectName $ModelObject.ParentObjectName `
-        -NumberRange "" `
-        -Module $Module
 }

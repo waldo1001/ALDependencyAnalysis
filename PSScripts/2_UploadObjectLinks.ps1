@@ -84,12 +84,14 @@ $UploadEntries = $LogEntries | where-object { (-not $_.SelfReference) -and (($_.
 
 #Add them to the database
 foreach($UploadEntrie in $UploadEntries){
-    New-ALDAElementLink -sourceObjectType $UploadEntrie.SourceObjectType `
-                        -sourceObjectID $UploadEntrie.SourceObjectID `
-                        -sourceModule $UploadEntrie.SourceModule `
-                        -sourceElement $UploadEntrie.Source `
-                        -targetObjectType $UploadEntrie.UsedByObjectType `
-                        -targetObjectID $UploadEntrie.UsedByObjectID `
-                        -targetModule $UploadEntrie.UsedByModule `
-                        -targetElement $UploadEntrie.UsedBy
+    if (($UploadEntrie.SourceModule -in $ModuleFilter) -or ($UploadEntrie.UsedByModule -in $ModuleFilter)) {
+        New-ALDAElementLink -sourceObjectType $UploadEntrie.SourceObjectType `
+                            -sourceObjectID $UploadEntrie.SourceObjectID `
+                            -sourceModule $UploadEntrie.SourceModule `
+                            -sourceElement $UploadEntrie.Source `
+                            -targetObjectType $UploadEntrie.UsedByObjectType `
+                            -targetObjectID $UploadEntrie.UsedByObjectID `
+                            -targetModule $UploadEntrie.UsedByModule `
+                            -targetElement $UploadEntrie.UsedBy
+    }
 }
