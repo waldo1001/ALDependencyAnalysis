@@ -7,9 +7,9 @@
     ],
     "al.ruleSetPath": "./.codeAnalysis/app.ruleset.json",
     "CRS.OnSaveAlFileAction": "Rename",
-    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectType>.al",
-    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectType>Ext.al",
-    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectType>Cust.al",
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
     "CRS.ObjectNamePrefix": "ALDA ",
     "CRS.RemovePrefixFromFilename": true,
     "editor.formatOnSave": true
