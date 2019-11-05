@@ -26,6 +26,9 @@ function New-ALDAModelObject() {
 }
 
 #Add them to the database
+
+$start = Get-Date
+
 foreach ($ModelObject in $model.NAVObjects) {
     try {
         $Module = $ModelObject.ParentObjectName.Split(" ")[0].Split("-")[0]   
@@ -35,11 +38,15 @@ foreach ($ModelObject in $model.NAVObjects) {
     }
 
     #if ((!$Module) -or (!$OnlyModules) -or ($Module -in $ModuleFilter)) {
-        New-ALDAModelObject -ObjectType $ModelObject.ParentObjectType `
-            -ObjectID $ModelObject.ParentObjectID `
-            -ObjectName $ModelObject.ParentObjectName `
-            -NumberRange "" `
-            -Module $Module
+    New-ALDAModelObject -ObjectType $ModelObject.ParentObjectType `
+        -ObjectID $ModelObject.ParentObjectID `
+        -ObjectName $ModelObject.ParentObjectName `
+        -NumberRange "" `
+        -Module $Module
     #}
     
 }
+
+
+$Stop = get-date
+write-host "That just took $(($Stop - $Start).TotalSeconds) seconds"
