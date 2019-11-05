@@ -11,7 +11,7 @@ page 99022 "ALDA Number Range"
         {
             group(GroupName)
             {
-                field(Code; "Code")
+                field("Code"; "Code")
                 {
                     ApplicationArea = All;
                 }

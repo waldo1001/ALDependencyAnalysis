@@ -6,7 +6,7 @@ table 99020 "ALDA Number Range"
 
     fields
     {
-        field(1; Code; Code[20])
+        field(1; "Code"; Code[20])
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;

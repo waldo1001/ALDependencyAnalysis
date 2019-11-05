@@ -6,7 +6,7 @@ table 99000 "ALDA Configuration"
 
     fields
     {
-        field(1; Code; Code[10])
+        field(1; "Code"; Code[10])
         {
             Caption = 'Code';
             DataClassification = ToBeClassified;

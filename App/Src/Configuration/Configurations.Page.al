@@ -11,7 +11,7 @@ page 99000 "ALDA Configurations"
         {
             repeater(Group)
             {
-                field(Code; "Code")
+                field("Code"; "Code")
                 {
                     ApplicationArea = All;
                 }

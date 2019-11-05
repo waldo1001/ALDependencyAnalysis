@@ -48,7 +48,7 @@
 //                     ApplicationArea = All;
 //                 }
 
-//                 field(duration; "Duration")
+//                 field("duration"; "Duration")
 //                 {
 //                     Caption = 'duration';
 //                     ApplicationArea = All;

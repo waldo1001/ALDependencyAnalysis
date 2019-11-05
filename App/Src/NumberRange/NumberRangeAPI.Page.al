@@ -18,7 +18,7 @@ page 99023 "ALDA Number Range API"
         {
             repeater(GroupName)
             {
-                field(code; "Code")
+                field("code"; "Code")
                 {
                     Caption = 'code';
                     ApplicationArea = All;

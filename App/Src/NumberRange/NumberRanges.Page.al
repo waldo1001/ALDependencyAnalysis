@@ -12,7 +12,7 @@ page 99020 "ALDA Number Ranges"
         {
             repeater(Group)
             {
-                field(Code; "Code")
+                field("Code"; "Code")
                 {
                     ApplicationArea = All;
                 }

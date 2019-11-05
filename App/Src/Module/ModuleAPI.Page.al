@@ -18,7 +18,7 @@ page 99033 "ALDA Module API"
         {
             repeater(GroupName)
             {
-                field(code; "Code")
+                field("code"; "Code")
                 {
                     Caption = 'code';
                     ApplicationArea = All;
