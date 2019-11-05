@@ -116,6 +116,7 @@ table 99050 "ALDA Element Link"
 
     trigger OnInsert()
     begin
+        SetModules();
         SetLink();
     end;
 
@@ -132,6 +133,27 @@ table 99050 "ALDA Element Link"
     trigger OnRename()
     begin
         Error('Not allowed');
+    end;
+
+    procedure SetModules()
+    var
+        ALDAModelObject: Record "ALDA Model Object";
+    begin
+        if "Source Module" = '' then begin
+            ALDAModelObject.Reset();
+            ALDAModelObject.SetRange("Object Type", "Source Object Type");
+            ALDAModelObject.SetRange("Object ID", "Source Object ID");
+            if ALDAModelObject.FindFirst() then
+                "Source Module" := ALDAModelObject.Module;
+        end;
+
+        if "Target Module" = '' then begin
+            ALDAModelObject.Reset();
+            ALDAModelObject.SetRange("Object Type", "Target Object Type");
+            ALDAModelObject.SetRange("Object ID", "Target Object ID");
+            if ALDAModelObject.FindFirst() then
+                "Target Module" := ALDAModelObject.Module;
+        end;
     end;
 
     procedure SetLink()

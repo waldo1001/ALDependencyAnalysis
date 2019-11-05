@@ -80,4 +80,38 @@ codeunit 99060 "ALDA Module Link"
 
         exit(false);
     end;
+
+    procedure GetMultiLevelCircularWebGraphvizText(ALDAModuleLink: Record "ALDA Module Link"; Circle: List of [Text]; var GraphVizText: TextBuilder): Boolean
+    var
+        UsingLinks: record "ALDA Module Link";
+        CircleList: TExt;
+        CircleItem: Text;
+        TextToBeAdded: Text;
+    begin
+
+        foreach CircleItem in Circle do
+            CircleList += CircleItem + '-';
+
+        UsingLinks.SetRange("Source Module", ALDAModuleLink."Target Module");
+        UsingLinks.SetRange(Ignore, false);
+        if UsingLinks.FindSet() then
+            repeat
+                if not (UsingLinks."Source Module" = UsingLinks."Target Module") then begin
+                    Circle.Add(UsingLinks."Source Module");
+                    TextToBeAdded := StrSubstNo('   "%1" -> "%2" [color="red"] ;', UsingLinks."Source Module", UsingLinks."Target Module");
+                    if (not GraphVizText.ToText().Contains(TextToBeAdded)) then
+                        GraphVizText.AppendLine(TextToBeAdded);
+                    CircleList += UsingLinks."Source Module";
+
+                    if Circle.get(1) = UsingLinks."Target Module" then
+                        exit(true)
+                    else
+                        if not circle.Contains(UsingLinks."Target Module") then
+                            if GetMultiLevelCircularWebGraphvizText(UsingLinks, Circle, GraphVizText) then
+                                exit(true);
+                end;
+            until UsingLinks.Next() < 1;
+
+        exit(false);
+    end;
 }

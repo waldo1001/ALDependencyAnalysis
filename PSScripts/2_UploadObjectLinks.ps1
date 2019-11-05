@@ -55,7 +55,7 @@ foreach ($ExternalReference in $ExternalReferences) {
         SourceObjectID    = $ExternalReference.UsingElement.ParentObjectID
         SourceObjectName  = $ExternalReference.UsingElement.ParentObjectName
         SourceModule      = $ExternalReference.UsingElement.ParentObjectName.Split(" ")[0].Split("-")[0]
-        SourceModuleMatch = $false
+        SourceModuleMatch = $false  
 
         UsedBy            = $ExternalReference.SourceElement.FullNameWithID
         UsedByObjectType  = $ExternalReference.SourceElement.ParentObjectType
@@ -68,9 +68,6 @@ foreach ($ExternalReference in $ExternalReferences) {
         SelfReference     = $false
     }
 
-    # $LogEntry.SourceModuleMatch = $null -ne ($DistriRanges | Where-Object { $_.Code.ToUpper() -eq $LogEntry.SourceModule.ToUpper() } | select-object -first 1)
-    # $LogEntry.UsedByModuleMatch = $null -ne ($DistriRanges | Where-Object { $_.Code.ToUpper() -eq $LogEntry.UsedByModule.ToUpper() } | select-object -first 1)   
-
     if ($LogEntry.SourceModuleMatch -and $LogEntry.UsedByModuleMatch) {
         $LogEntry.SelfReference = ($LogEntry.SourceModule -eq $LogEntry.UsedByModule)
     }
@@ -80,18 +77,21 @@ foreach ($ExternalReference in $ExternalReferences) {
 
 $UploadEntries = $LogEntries | where-object { (-not $_.SelfReference) -and (($_.UsedByModuleMatch -ne $true) -or ($_.SourceModuleMatch -ne $true)) }
 
-#TODO: only a fraction of the links
-
 #Add them to the database
-foreach($UploadEntrie in $UploadEntries){
+$start = Get-Date
+
+foreach ($UploadEntrie in $UploadEntries) {
     if (($UploadEntrie.SourceModule -in $ModuleFilter) -or ($UploadEntrie.UsedByModule -in $ModuleFilter)) {
         New-ALDAElementLink -sourceObjectType $UploadEntrie.SourceObjectType `
-                            -sourceObjectID $UploadEntrie.SourceObjectID `
-                            -sourceModule $UploadEntrie.SourceModule `
-                            -sourceElement $UploadEntrie.Source `
-                            -targetObjectType $UploadEntrie.UsedByObjectType `
-                            -targetObjectID $UploadEntrie.UsedByObjectID `
-                            -targetModule $UploadEntrie.UsedByModule `
-                            -targetElement $UploadEntrie.UsedBy
+            -sourceObjectID $UploadEntrie.SourceObjectID `
+            -sourceElement $UploadEntrie.Source `
+            -targetObjectType $UploadEntrie.UsedByObjectType `
+            -targetObjectID $UploadEntrie.UsedByObjectID `
+            -targetElement $UploadEntrie.UsedBy
+        #-sourceModule $UploadEntrie.SourceModule ` #will be filled in from AL 
+        #-targetModule $UploadEntrie.UsedByModule `
     }
 }
+
+$Stop = get-date
+write-host "That just took $(($Stop - $Start).TotalSeconds) seconds"
