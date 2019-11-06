@@ -61,21 +61,27 @@ codeunit 99060 "ALDA Module Link"
         foreach CircleItem in Circle do
             CircleList += CircleItem + '-';
 
+        circle.Add(ALDAModuleLink."Target Module");
+
         UsingLinks.SetRange("Source Module", ALDAModuleLink."Target Module");
         UsingLinks.SetRange(Ignore, false);
         if UsingLinks.FindSet() then
             repeat
-                if not (UsingLinks."Source Module" = UsingLinks."Target Module") then begin
-                    Circle.Add(UsingLinks."Source Module");
-                    CircleList += UsingLinks."Source Module";
-
-                    if Circle.get(1) = UsingLinks."Target Module" then
-                        exit(true)
+                if not (UsingLinks."Source Module" = UsingLinks."Target Module") then
+                    if Circle.get(1) = UsingLinks."Target Module" then begin
+                        Circle.add(UsingLinks."Target Module");
+                        exit(true);
+                    end
                     else
-                        if not circle.Contains(UsingLinks."Target Module") then
+                        if not circle.Contains(UsingLinks."Target Module") then begin
+                            Circle.add(UsingLinks."Target Module");
+
                             if IsCircular(UsingLinks, Circle) then
-                                exit(true);
-                end;
+                                exit(true)
+                            else
+                                circle.Remove(UsingLinks."Target Module");
+                        end;
+
             until UsingLinks.Next() < 1;
 
         //false - remove links
@@ -107,8 +113,8 @@ codeunit 99060 "ALDA Module Link"
         UsingLinks.SetRange(Ignore, false);
         if UsingLinks.FindSet() then
             repeat
-                if not (UsingLinks."Source Module" = UsingLinks."Target Module") then begin
-                    CircleList += UsingLinks."Source Module";
+                if not (UsingLinks."Source Module" = UsingLinks."Target Module") then
+                    // CircleList += UsingLinks."Source Module";
 
                     if Circle.Keys().Get(1).Contains(UsingLinks."Target Module") then begin
                         KeyToBeAdded := StrSubstNo('%1-%2', UsingLinks."Source Module", UsingLinks."Target Module");
@@ -119,7 +125,7 @@ codeunit 99060 "ALDA Module Link"
 
                         exit(true);
                     end
-                    else begin
+                    else
                         //if not circle.Keys().Contains(UsingLinks."Target Module") then
                         if not TargetHandled(UsingLinks."Target Module", Circle) then begin
                             KeyToBeAdded := StrSubstNo('%1-%2', UsingLinks."Source Module", UsingLinks."Target Module");
@@ -133,8 +139,8 @@ codeunit 99060 "ALDA Module Link"
                             else
                                 Circle.Remove(KeyToBeAdded);
                         end;
-                    end;
-                end;
+
+
             until UsingLinks.Next() < 1;
 
 
