@@ -138,13 +138,18 @@ table 99050 "ALDA Element Link"
     procedure SetModules()
     var
         ALDAModelObject: Record "ALDA Model Object";
+        ALDAModule: Record "ALDA Module";
     begin
         if "Source Module" = '' then begin
             ALDAModelObject.Reset();
             ALDAModelObject.SetRange("Object Type", "Source Object Type");
             ALDAModelObject.SetRange("Object ID", "Source Object ID");
             if ALDAModelObject.FindFirst() then
-                "Source Module" := ALDAModelObject.Module;
+                if ALDAModule.Get(ALDAModelObject.Module) then begin
+                    "Source Module" := ALDAModelObject.Module;
+                    if ALDAModule.NA then
+                        Ignore := true;
+                end;
         end;
 
         if "Target Module" = '' then begin
@@ -152,7 +157,11 @@ table 99050 "ALDA Element Link"
             ALDAModelObject.SetRange("Object Type", "Target Object Type");
             ALDAModelObject.SetRange("Object ID", "Target Object ID");
             if ALDAModelObject.FindFirst() then
-                "Target Module" := ALDAModelObject.Module;
+                if ALDAModule.Get(ALDAModelObject.Module) then begin
+                    "Target Module" := ALDAModelObject.Module;
+                    if ALDAModule.NA then
+                        Ignore := true;
+                end;
         end;
     end;
 
@@ -169,6 +178,7 @@ table 99050 "ALDA Element Link"
         clear(ALDAModuleLink);
         ALDAModuleLink."Source Module" := "Source Module";
         ALDAModuleLink."Target Module" := "Target Module";
+        ALDAModuleLink.Ignore := Ignore;
         ALDAModuleLink.Insert();
     end;
 
