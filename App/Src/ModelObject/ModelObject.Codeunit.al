@@ -28,7 +28,10 @@ codeunit 99010 "ALDA Model Object"
         if ObjectName.ToLower().Contains(' hook') then
             exit('_HOOK');
 
-        if strlen(ModuleName) > 5 then
+        if ObjectName.ToLower().Contains(' functions') then
+            exit('_FUNCLIB');
+
+        if ((ModuleName <> ModuleName.ToUpper()) or (strlen(ModuleName) > 10)) then
             ModuleName := '_UNKNOWN';
 
         exit(ModuleName);
