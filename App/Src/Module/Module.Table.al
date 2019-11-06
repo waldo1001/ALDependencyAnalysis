@@ -80,6 +80,13 @@ table 99030 "ALDA Module"
             CalcFormula = count ("ALDA Module Link" where("Source Module" = field(Code), Circular = const(true)));
             Editable = false;
         }
+        field(99063; MultiLevelCircular; Integer)
+        {
+            Caption = 'MultiLevel Circular';
+            FieldClass = FlowField;
+            CalcFormula = count ("ALDA Module Link" where("Source Module" = field(Code), MultiLevelCircularCount = filter('>0')));
+            Editable = false;
+        }
 
         field(99070; App; Code[20])
         {

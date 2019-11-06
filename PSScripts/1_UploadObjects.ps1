@@ -50,3 +50,5 @@ foreach ($ModelObject in $model.NAVObjects) {
 
 $Stop = get-date
 write-host "That just took $(($Stop - $Start).TotalSeconds) seconds"
+
+# Last time: 214.7587065

@@ -73,7 +73,7 @@ page 99013 "ALDA Model Object API"
     local procedure ProcessModule()
     var
         ALDAModule: Record "ALDA Module";
-        ALDAModuleNameHelper: Codeunit "ALDA Module Name Helper";
+        ALDAModuleNameHelper: Codeunit "ALDA Model Object";
     begin
         ModuleName := ALDAModuleNameHelper.GetModuleName("Object ID", "Object Name", ModuleName);
 

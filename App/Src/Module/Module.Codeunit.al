@@ -4,41 +4,52 @@ codeunit 99030 "ALDA Module"
     var
         ALDAModuleLink: Record "ALDA Module Link";
         GraphVizText: TextBuilder;
-        Circle: List of [Text];
+        Circle: Dictionary of [Text, Text];
         ALDAModuleLinkClass: Codeunit "ALDA Module Link";
         Module: Text;
+        GraphvizTextItem: Text;
+    // TempModuleLink: record "ALDA Module Link" temporary;
     begin
         //GraphVizText.AppendLine('digraph G {');
 
         GraphVizText.AppendLine('"' + ALDAModule.Code + '";');
 
 
-        // clear(ALDAModuleLink);
-        // ALDAModuleLink.SetRange("Source Module", ALDAModule.Code);
-        // ALDAModuleLink.SetFilter(Links, '>%1', 0);
-        // ALDAModuleLink.SetRange("Self Reference", false);
-        // ALDAModuleLink.SetFilter(MultiLevelCircularCount, '>%1', 0);
-        // ALDAModuleLink.SetRange(Ignore, false);
-        // // if (ALDAModuleLink.FindSet()) then
-        // //     repeat
-        // //         clear(Circle);
-        // //         ALDAModuleLinkClass.GetMultiLevelCircularWebGraphvizText(ALDAModuleLink, Circle, GraphVizText);
-        // //     until ALDAModuleLink.Next() < 1;
+        clear(ALDAModuleLink);
+        ALDAModuleLink.SetRange("Source Module", ALDAModule.Code);
+        //ALDAModuleLink.SetFilter(Links, '>%1', 0);
+        ALDAModuleLink.SetRange("Self Reference", false);
+        ALDAModuleLink.SetFilter(MultiLevelCircularCount, '>%1', 0);
+        ALDAModuleLink.SetRange(Ignore, false);
+        if (ALDAModuleLink.FindSet()) then
+            repeat
+                clear(Circle);
+                Circle.Add(ALDAModuleLink."Source Module", '');
+                ALDAModuleLinkClass.GetMultiLevelCircularWebGraphvizText(ALDAModuleLink, Circle);
+                foreach GraphvizTextItem in Circle.Values() do
+                    GraphVizText.AppendLine(GraphvizTextItem);
+
+            until ALDAModuleLink.Next() < 1;
         // if ALDAModuleLink.FindFirst() then begin
         //     clear(Circle);
         //     ALDAModuleLinkClass.GetMultiLevelCircularWebGraphvizText(ALDAModuleLink, Circle, GraphVizText);
         // end;
 
-        clear(ALDAModuleLink);
-        ALDAModuleLink.SetRange("Source Module", ALDAModule.Code);
-        ALDAModuleLink.SetFilter(Links, '>%1', 0);
-        ALDAModuleLink.SetRange("Self Reference", false);
-        ALDAModuleLink.SetRange(Circular, true);
-        ALDAModuleLink.SetRange(Ignore, false);
-        if (ALDAModuleLink.FindSet()) then
-            repeat
-                GraphVizText.AppendLine(StrSubstNo('   "%1" -> "%2" [dir=both color="red"] ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
-            until ALDAModuleLink.Next() < 1;
+        // message('Count TempModuleLink: %1', TempModuleLink.Count());
+
+
+        //Direct Circular
+        // clear(ALDAModuleLink);
+        // ALDAModuleLink.SetRange("Source Module", ALDAModule.Code);
+        // ALDAModuleLink.SetFilter(Links, '>%1', 0);
+        // ALDAModuleLink.SetRange("Self Reference", false);
+        // ALDAModuleLink.SetRange(Circular, true);
+        // ALDAModuleLink.SetRange(Ignore, false);
+        // if (ALDAModuleLink.FindSet()) then
+        //     repeat
+        //         GraphVizText.AppendLine(StrSubstNo('   "%1" -> "%2" [dir=both color="red"] ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
+        //     until ALDAModuleLink.Next() < 1;
+
 
         clear(ALDAModuleLink);
         ALDAModuleLink.SetRange("Source Module", ALDAModule.Code);
@@ -64,7 +75,7 @@ codeunit 99030 "ALDA Module"
 
 
 
-        GraphVizText.AppendLine('}');
+        // GraphVizText.AppendLine('}');
 
         exit(GraphVizText.ToText());
     end;

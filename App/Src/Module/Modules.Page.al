@@ -52,6 +52,11 @@ page 99030 "ALDA Modules"
                     ApplicationArea = All;
                 }
 
+                field(MultiLevelCircular; MultiLevelCircular)
+                {
+                    ApplicationArea = All;
+                }
+
                 field(Modified; "Modified")
                 {
                     ApplicationArea = All;

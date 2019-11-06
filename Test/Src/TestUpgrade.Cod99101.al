@@ -4,8 +4,18 @@ codeunit 99101 "ALDA Test Upgrade"
 
     trigger OnUpgradePerCompany()
     var
-        BASETestInstall: Codeunit "ALDA Test Install";
+        TestInstall: Codeunit "ALDA Test Install";
     begin
-        BASETestInstall.SetupTestSuite();
+        TestInstall.SetupTestSuite();
+    end;
+
+    procedure test(bleh: boolean)
+    begin
+
+    end;
+
+    procedure testtest()
+    begin
+        test(true);
     end;
 }

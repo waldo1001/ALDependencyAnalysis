@@ -48,7 +48,7 @@ page 99053 "ALDA Element Link API"
 
                     trigger OnValidate()
                     var
-                        ALDAModuleNameHelper: Codeunit "ALDA Module Name Helper";
+                        ALDAModuleNameHelper: Codeunit "ALDA Model Object";
                     begin
                         SourceModuleTmp := ALDAModuleNameHelper.GetModuleName("Source Object ID", SourceObjectNameTmp, SourceModuleTmp);
                         Validate("Source Module", SourceModuleTmp);
@@ -85,7 +85,7 @@ page 99053 "ALDA Element Link API"
 
                     trigger OnValidate()
                     var
-                        ALDAModuleNameHelper: Codeunit "ALDA Module Name Helper";
+                        ALDAModuleNameHelper: Codeunit "ALDA Model Object";
                     begin
                         TargetModuleTmp := ALDAModuleNameHelper.GetModuleName("Target Object ID", TargetObjectNameTmp, TargetModuleTmp);
                         Validate("Target Module", TargetModuleTmp);

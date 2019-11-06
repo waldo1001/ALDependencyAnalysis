@@ -1,4 +1,4 @@
-table 99090 "ALDA Number Range Cue"
+table 99090 "ALDA Cue"
 {
     DataClassification = SystemMetadata;
 
@@ -19,7 +19,7 @@ table 99090 "ALDA Number Range Cue"
         {
             Caption = 'Modules';
             FieldClass = FlowField;
-            CalcFormula = count ("ALDA Module");
+            CalcFormula = count ("ALDA Module" where(NA = const(false)));
         }
         field(40; "Number Ranges"; Integer)
         {

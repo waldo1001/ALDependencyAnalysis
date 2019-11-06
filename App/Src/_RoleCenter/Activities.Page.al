@@ -1,7 +1,7 @@
 page 99095 "ALDA Activities"
 {
     PageType = CardPart;
-    SourceTable = "ALDA Number Range Cue";
+    SourceTable = "ALDA Cue";
 
     layout
     {

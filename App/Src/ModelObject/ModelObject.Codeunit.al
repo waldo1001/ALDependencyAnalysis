@@ -18,4 +18,19 @@ codeunit 99010 "ALDA Model Object"
         ALDAElementLink.SetFilter("Target Module", '<>%1', ALDAModelObject.Module);
         ALDAElementLink.ModifyAll("Target Module", ALDAModelObject.Module, true);
     end;
+
+
+    Procedure GetModuleName(ObjectId: Integer; ObjectName: Text; ModuleName: Text): Text;
+    begin
+        if (ObjectId < 2000000) or (ObjectId > 99000000) then
+            exit('_BASEAPP');
+
+        if ObjectName.ToLower().Contains(' hook') then
+            exit('_HOOK');
+
+        if strlen(ModuleName) > 5 then
+            ModuleName := '_UNKNOWN';
+
+        exit(ModuleName);
+    end;
 }

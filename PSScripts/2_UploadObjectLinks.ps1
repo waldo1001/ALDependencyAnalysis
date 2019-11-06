@@ -80,14 +80,15 @@ $UploadEntries = $LogEntries | where-object { (-not $_.SelfReference) -and (($_.
 #Add them to the database
 $start = Get-Date
 
-foreach ($UploadEntrie in $UploadEntries) {
-    if (($UploadEntrie.SourceModule -in $ModuleFilter) -or ($UploadEntrie.UsedByModule -in $ModuleFilter)) {
-        New-ALDAElementLink -sourceObjectType $UploadEntrie.SourceObjectType `
-            -sourceObjectID $UploadEntrie.SourceObjectID `
-            -sourceElement $UploadEntrie.Source `
-            -targetObjectType $UploadEntrie.UsedByObjectType `
-            -targetObjectID $UploadEntrie.UsedByObjectID `
-            -targetElement $UploadEntrie.UsedBy
+foreach ($UploadEntry in $UploadEntries) {
+    if ((($UploadEntry.SourceModule -in $ModuleFilter) -and ($UploadEntry.UsedByModule -in $ModuleFilter)) -or (-not $ModuleFilter.Count)) {
+        write-host "$($UploadEntry.SourceModule) - $($UploadEntry.UsedByModule)"
+        New-ALDAElementLink -sourceObjectType $UploadEntry.SourceObjectType `
+            -sourceObjectID $UploadEntry.SourceObjectID `
+            -sourceElement $UploadEntry.Source `
+            -targetObjectType $UploadEntry.UsedByObjectType `
+            -targetObjectID $UploadEntry.UsedByObjectID `
+            -targetElement $UploadEntry.UsedBy
         #-sourceModule $UploadEntrie.SourceModule ` #will be filled in from AL 
         #-targetModule $UploadEntrie.UsedByModule `
     }
