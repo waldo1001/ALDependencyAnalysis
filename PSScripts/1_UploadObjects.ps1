@@ -52,3 +52,11 @@ $Stop = get-date
 write-host "That just took $(($Stop - $Start).TotalSeconds) seconds"
 
 # Last time: 214.7587065
+
+<#
+Ignore: 
+    _BASEAPP
+    _HOOK
+    _UNKNOWN
+    All with 1 Object
+#>
