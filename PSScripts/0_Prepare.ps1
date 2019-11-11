@@ -1,5 +1,5 @@
-#. (join-path $PSScriptRoot "./.Settings.ps1")
-. (join-path $PSScriptRoot "./.SettingsWindows.ps1")
+. (join-path $PSScriptRoot "./.Settings.ps1")
+# . (join-path $PSScriptRoot "./.SettingsWindows.ps1")
 
 
 $ObjectsFile = "C:\_Source\Community\ALDependencyAnalysis\PSScripts\Objects\DistriModified.txt"
