@@ -1,11 +1,11 @@
-$ContainerName = 'bccurrent'
+$ContainerName = 'bcaldep'
 $UID = 'admin'
 $Password = 'Waldo1234'
 $APIBaseURL = "http://$($ContainerName):7048/BC/api/waldo/alDependency/v1.0"
 
 #Load Vars
 
-$admin = Get-NavContainerNavUser -containerName bccurrent | where UserName -eq $UID
+$admin = Get-NavContainerNavUser -containerName $ContainerName | where UserName -eq $UID
 
 
 if ($admin) {
@@ -14,7 +14,7 @@ if ($admin) {
 else {
     $password = ConvertTo-SecureString $Password -AsPlainText -Force
     New-NCHNAVSuperUser -ContainerName $ContainerName -Username $UID -Password $Password -CreateWebServicesKey
-    $admin = Get-NavContainerNavUser -containerName bccurrent | where UserName -eq $UID
+    $admin = Get-NavContainerNavUser -containerName $ContainerName | where UserName -eq $UID
     $pwd = $admin.WebServicesKey
 }
 
