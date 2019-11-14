@@ -105,7 +105,7 @@ codeunit 99060 "ALDA Module Link"
 
         // GraphVizTextLength := GraphVizText.Length();
         KeyToBeAdded := StrSubstNo('%1-%2', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module");
-        TextToBeAdded := StrSubstNo('   "%1" -> "%2" [color="red"] ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module");
+        TextToBeAdded := StrSubstNo('   "%2" -> "%1" [color="red"] ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module");
         if not circle.ContainsKey(KeyToBeAdded) then
             Circle.Add(KeyToBeAdded, TextToBeAdded);
 
@@ -118,7 +118,7 @@ codeunit 99060 "ALDA Module Link"
 
                     if Circle.Keys().Get(1).Contains(UsingLinks."Target Module") then begin
                         KeyToBeAdded := StrSubstNo('%1-%2', UsingLinks."Source Module", UsingLinks."Target Module");
-                        TextToBeAdded := StrSubstNo('   "%1" -> "%2" [color="red"] ;', UsingLinks."Source Module", UsingLinks."Target Module");
+                        TextToBeAdded := StrSubstNo('   "%2" -> "%1" [color="red"] ;', UsingLinks."Source Module", UsingLinks."Target Module");
                         // if confirm(KeyToBeAdded) then;
                         if not circle.ContainsKey(KeyToBeAdded) then
                             Circle.Add(KeyToBeAdded, TextToBeAdded);
@@ -129,7 +129,7 @@ codeunit 99060 "ALDA Module Link"
                         //if not circle.Keys().Contains(UsingLinks."Target Module") then
                         if not TargetHandled(UsingLinks."Target Module", Circle) then begin
                             KeyToBeAdded := StrSubstNo('%1-%2', UsingLinks."Source Module", UsingLinks."Target Module");
-                            TextToBeAdded := StrSubstNo('   "%1" -> "%2" [color="red"] ;', UsingLinks."Source Module", UsingLinks."Target Module");
+                            TextToBeAdded := StrSubstNo('   "%2" -> "%1" [color="red"] ;', UsingLinks."Source Module", UsingLinks."Target Module");
                             // if confirm(KeyToBeAdded) then;
                             if not circle.ContainsKey(KeyToBeAdded) then
                                 Circle.Add(KeyToBeAdded, TextToBeAdded);

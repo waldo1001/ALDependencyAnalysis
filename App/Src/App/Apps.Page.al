@@ -24,16 +24,14 @@ page 99070 "ALDA Apps"
                 field("Number Range From"; "Number Range From")
                 {
                     ApplicationArea = All;
+                    Visible = false;
                 }
                 field("Number Range To"; "Number Range To")
                 {
                     ApplicationArea = All;
+                    Visible = false;
                 }
 
-                field(NA; "NA")
-                {
-                    ApplicationArea = All;
-                }
 
                 field(Modules; "Modules")
                 {
@@ -41,6 +39,10 @@ page 99070 "ALDA Apps"
                 }
 
                 field(Codeunits; "Codeunits")
+                {
+                    ApplicationArea = All;
+                }
+                field(NA; "NA")
                 {
                     ApplicationArea = All;
                 }

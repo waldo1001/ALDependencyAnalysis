@@ -59,7 +59,7 @@ codeunit 99030 "ALDA Module"
         ALDAModuleLink.SetRange(Ignore, false);
         if (ALDAModuleLink.FindSet()) then
             repeat
-                GraphVizText.AppendLine(StrSubstNo('   "%1" -> "%2" ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
+                GraphVizText.AppendLine(StrSubstNo('   "%2" -> "%1" ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
             until ALDAModuleLink.Next() < 1;
 
         clear(ALDAModuleLink);
@@ -70,7 +70,7 @@ codeunit 99030 "ALDA Module"
         ALDAModuleLink.SetRange(Ignore, false);
         if (ALDAModuleLink.FindSet()) then
             repeat
-                GraphVizText.AppendLine(StrSubstNo('   "%1" -> "%2" ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
+                GraphVizText.AppendLine(StrSubstNo('   "%2" -> "%1" ;', ALDAModuleLink."Source Module", ALDAModuleLink."Target Module"));
             until ALDAModuleLink.Next() < 1;
 
 
